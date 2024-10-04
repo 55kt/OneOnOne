@@ -75,11 +75,11 @@ extension MainTabView {
         fileprivate var icon: String {
             switch self {
             case .chats:
-                return "bubble.left"
+                return "bubble.middle.bottom"
             case .search:
                 return "magnifyingglass"
             case .settings:
-                return "gear"
+                return "gearshape.2.fill"
             }
         }
     }
