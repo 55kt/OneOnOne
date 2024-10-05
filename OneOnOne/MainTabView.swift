@@ -17,7 +17,7 @@ struct MainTabView: View {
     // MARK: - Body
     var body: some View {
         TabView {
-            placeholderItemView("Chats")
+            ChatsScreenView()
                 .tabItem {
                     Image(systemName: Tab.chats.icon)
                     Text(Tab.chats.title)
@@ -33,7 +33,7 @@ struct MainTabView: View {
                     Text(Tab.settings.title)
                 }
         }
-        .accentColor(.black)
+        .accentColor(.orange)
     }
     
     // Функция которая делает TabBar постоянно непрозрачным

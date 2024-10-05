@@ -1,0 +1,40 @@
+//
+//  ChatsScreenView.swift
+//  OneOnOne
+//
+//  Created by Vlad on 5/10/24.
+//
+
+import SwiftUI
+
+struct ChatsScreenView: View {
+    // MARK: - Properties
+    // Временная переменная для текста в поисковом поле
+    @State private var searchText: String = ""
+    
+    // MARK: - Body
+    var body: some View {
+        NavigationStack {
+            List {
+                archiveButton()
+                
+                ForEach(0..<20) { _ in
+                    ChatUserCell()
+                }
+                inboxfooterView()
+                    .listRowSeparator(.hidden)
+            }
+            .navigationTitle("Chats")
+            .searchable(text: $searchText)
+            .listStyle(.plain)
+            .toolbar {
+                leadingNavItems()
+            }
+        }
+    }
+}
+
+// MARK: - Preview
+#Preview {
+    ChatsScreenView()
+}
