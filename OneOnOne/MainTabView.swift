@@ -11,7 +11,7 @@ struct MainTabView: View {
     
     // MARK: - Initializer
     init() {
-//        makeTabBarOpaque()
+
     }
     
     // MARK: - Body
@@ -27,7 +27,7 @@ struct MainTabView: View {
                     Image(systemName: Tab.search.icon)
                     Text(Tab.search.title)
                 }
-            placeholderItemView("Settings")
+            SettingsScreenView()
                 .tabItem {
                     Image(systemName: Tab.settings.icon)
                     Text(Tab.settings.title)
@@ -35,20 +35,15 @@ struct MainTabView: View {
         }
         .accentColor(.orange)
     }
-    
-    // Функция которая делает TabBar постоянно непрозрачным
-    private func makeTabBarOpaque() {
-        let apperance = UITabBarAppearance()
-        apperance.configureWithOpaqueBackground()
-        UITabBar.appearance().standardAppearance = apperance
-        UITabBar.appearance().scrollEdgeAppearance = apperance
-    }
 }
 
 // MARK: - Extensions
 extension MainTabView {
     
-    // Временный PlaceHolder для тестинга TabBar
+    /*
+     Временный PlaceHolder для тестинга TabBar
+     Temporary PlaceHolder for testing TabBar
+     */
     private func placeholderItemView(_ title: String) -> some View {
         ScrollView {
             VStack {
@@ -68,7 +63,10 @@ extension MainTabView {
     private enum Tab: String {
         case chats, search, settings
         
-        // Переменная для оформления Text с заглавной буквы
+        /*
+         Переменная для оформления Text с заглавной буквы
+         Variable for capitalizing Text
+         */
         fileprivate var title: String {
             return rawValue.capitalized
         }

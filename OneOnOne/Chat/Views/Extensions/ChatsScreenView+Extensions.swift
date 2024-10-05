@@ -10,7 +10,10 @@ import SwiftUI
 extension ChatsScreenView {
     @ToolbarContentBuilder
     
-    // Кнопка левого меню
+    /*
+     Кнопка левого меню
+     Left menu button
+     */
     func leadingNavItems() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Menu {
@@ -26,7 +29,10 @@ extension ChatsScreenView {
         }
     }
     
-    // Ячейка архивированных чатов
+    /*
+     Ячейка архивированных чатов
+     Archived chat box
+     */
     func archiveButton() -> some View {
         Button {
             // Some action
@@ -39,7 +45,10 @@ extension ChatsScreenView {
         }
     }
     
-    // Нижняя ссылка под ячейками чата
+    /*
+     Нижняя ссылка под ячейками чата
+     Bottom link under chat cells
+     */
     func inboxfooterView() -> some View {
         HStack {
             Image(systemName: "lock.fill")

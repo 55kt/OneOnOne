@@ -21,7 +21,10 @@ struct ChatUserCell: View {
         }
     }
     
-    // Имя Юзера
+    /*
+     Имя Юзера
+     Username
+     */
     private func titleTextView() -> some View {
         HStack {
             Text("Username here")
@@ -36,7 +39,10 @@ struct ChatUserCell: View {
         }
     }
     
-    // Preview последнего сообщения
+    /*
+     Preview последнего сообщения
+     Preview of the latest message
+     */
     private func lastMessagePreview() -> some View {
         Text("Text message preview")
             .font(.system(size: 16))
