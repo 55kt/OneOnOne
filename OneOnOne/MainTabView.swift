@@ -11,7 +11,7 @@ struct MainTabView: View {
     
     // MARK: - Initializer
     init() {
-        makeTabBarOpaque()
+//        makeTabBarOpaque()
     }
     
     // MARK: - Body
@@ -33,6 +33,7 @@ struct MainTabView: View {
                     Text(Tab.settings.title)
                 }
         }
+        .accentColor(.black)
     }
     
     // Функция которая делает TabBar постоянно непрозрачным
@@ -57,7 +58,7 @@ extension MainTabView {
                         .bold()
                         .frame(maxWidth: .infinity)
                         .frame(height: 120)
-                        .background(.green)
+                        .background(.orange)
                 }
             }
         }
