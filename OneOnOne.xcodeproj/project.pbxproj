@@ -6,17 +6,38 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4B6FA0F12CB2E6BE005AE578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6FA0E42CB2E6BE005AE578 /* Preview Assets.xcassets */; };
+		4B6FA0F22CB2E6BE005AE578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */; };
+		4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */; };
+		4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */; };
+		4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */; };
+		4B6FA0F62CB2E6BE005AE578 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0E62CB2E6BE005AE578 /* SettingsCell.swift */; };
+		4B6FA0F72CB2E6BE005AE578 /* SettingsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0E82CB2E6BE005AE578 /* SettingsScreenView.swift */; };
+		4B6FA0F82CB2E6BE005AE578 /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0EA2CB2E6BE005AE578 /* SettingsItemCell.swift */; };
+		4B6FA0F92CB2E6BE005AE578 /* SettingsUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0EB2CB2E6BE005AE578 /* SettingsUserCell.swift */; };
+		4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */; };
+		4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */; };
+		4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */; };
+		4B6FA0FF2CB2FDEB005AE578 /* TextInputArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0FE2CB2FDEB005AE578 /* TextInputArea.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4B5C843C2CAF183D009BF1C7 /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
+		4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsScreenView+Extensions.swift"; sourceTree = "<group>"; };
+		4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsScreenView.swift; sourceTree = "<group>"; };
+		4B6FA0E42CB2E6BE005AE578 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B6FA0E62CB2E6BE005AE578 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		4B6FA0E82CB2E6BE005AE578 /* SettingsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenView.swift; sourceTree = "<group>"; };
+		4B6FA0EA2CB2E6BE005AE578 /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
+		4B6FA0EB2CB2E6BE005AE578 /* SettingsUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUserCell.swift; sourceTree = "<group>"; };
+		4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOnOneApp.swift; sourceTree = "<group>"; };
+		4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
+		4B6FA0FE2CB2FDEB005AE578 /* TextInputArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputArea.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		4B5C843E2CAF183D009BF1C7 /* OneOnOne */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = OneOnOne;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4B5C84392CAF183D009BF1C7 /* Frameworks */ = {
@@ -32,7 +53,7 @@
 		4B5C84332CAF183D009BF1C7 = {
 			isa = PBXGroup;
 			children = (
-				4B5C843E2CAF183D009BF1C7 /* OneOnOne */,
+				4B6FA0F02CB2E6BE005AE578 /* OneOnOne */,
 				4B5C843D2CAF183D009BF1C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +64,90 @@
 				4B5C843C2CAF183D009BF1C7 /* OneOnOne.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4B6FA0DE2CB2E6BE005AE578 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */,
+				4B6FA0FE2CB2FDEB005AE578 /* TextInputArea.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4B6FA0E02CB2E6BE005AE578 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4B6FA0E22CB2E6BE005AE578 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */,
+				4B6FA0DE2CB2E6BE005AE578 /* Components */,
+				4B6FA0E02CB2E6BE005AE578 /* Extensions */,
+				4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4B6FA0E32CB2E6BE005AE578 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E22CB2E6BE005AE578 /* Views */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		4B6FA0E52CB2E6BE005AE578 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E42CB2E6BE005AE578 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4B6FA0E72CB2E6BE005AE578 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E62CB2E6BE005AE578 /* SettingsCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4B6FA0E92CB2E6BE005AE578 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E82CB2E6BE005AE578 /* SettingsScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4B6FA0EC2CB2E6BE005AE578 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E72CB2E6BE005AE578 /* Models */,
+				4B6FA0E92CB2E6BE005AE578 /* Views */,
+				4B6FA0EA2CB2E6BE005AE578 /* SettingsItemCell.swift */,
+				4B6FA0EB2CB2E6BE005AE578 /* SettingsUserCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		4B6FA0F02CB2E6BE005AE578 /* OneOnOne */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0E32CB2E6BE005AE578 /* Chat */,
+				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
+				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
+				4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */,
+				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
+				4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */,
+			);
+			path = OneOnOne;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +164,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4B5C843E2CAF183D009BF1C7 /* OneOnOne */,
 			);
 			name = OneOnOne;
 			packageProductDependencies = (
@@ -109,6 +211,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B6FA0F12CB2E6BE005AE578 /* Preview Assets.xcassets in Resources */,
+				4B6FA0F22CB2E6BE005AE578 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +223,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */,
+				4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */,
+				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
+				4B6FA0F62CB2E6BE005AE578 /* SettingsCell.swift in Sources */,
+				4B6FA0F72CB2E6BE005AE578 /* SettingsScreenView.swift in Sources */,
+				4B6FA0F82CB2E6BE005AE578 /* SettingsItemCell.swift in Sources */,
+				4B6FA0F92CB2E6BE005AE578 /* SettingsUserCell.swift in Sources */,
+				4B6FA0FF2CB2FDEB005AE578 /* TextInputArea.swift in Sources */,
+				4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */,
+				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
+				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
