@@ -20,6 +20,8 @@
 		4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */; };
 		4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */; };
 		4B6FA0FF2CB2FDEB005AE578 /* TextInputArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0FE2CB2FDEB005AE578 /* TextInputArea.swift */; };
+		4B6FA1032CB30885005AE578 /* ChatRoom+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA1022CB30885005AE578 /* ChatRoom+Extensions.swift */; };
+		4B6FA1062CB3095D005AE578 /* DefaultUserAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA1052CB3095D005AE578 /* DefaultUserAvatar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOnOneApp.swift; sourceTree = "<group>"; };
 		4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
 		4B6FA0FE2CB2FDEB005AE578 /* TextInputArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputArea.swift; sourceTree = "<group>"; };
+		4B6FA1022CB30885005AE578 /* ChatRoom+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatRoom+Extensions.swift"; sourceTree = "<group>"; };
+		4B6FA1052CB3095D005AE578 /* DefaultUserAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserAvatar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */,
+				4B6FA1022CB30885005AE578 /* ChatRoom+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -87,9 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */,
+				4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */,
 				4B6FA0DE2CB2E6BE005AE578 /* Components */,
 				4B6FA0E02CB2E6BE005AE578 /* Extensions */,
-				4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,10 +134,9 @@
 		4B6FA0EC2CB2E6BE005AE578 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				4B6FA0E72CB2E6BE005AE578 /* Models */,
 				4B6FA0E92CB2E6BE005AE578 /* Views */,
-				4B6FA0EA2CB2E6BE005AE578 /* SettingsItemCell.swift */,
-				4B6FA0EB2CB2E6BE005AE578 /* SettingsUserCell.swift */,
+				4B6FA0E72CB2E6BE005AE578 /* Models */,
+				4B6FA1012CB30809005AE578 /* Components */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -140,14 +144,32 @@
 		4B6FA0F02CB2E6BE005AE578 /* OneOnOne */ = {
 			isa = PBXGroup;
 			children = (
-				4B6FA0E32CB2E6BE005AE578 /* Chat */,
-				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
-				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
-				4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */,
-				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
 				4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */,
+				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
+				4B6FA0E32CB2E6BE005AE578 /* Chat */,
+				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
+				4B6FA1042CB30927005AE578 /* Components */,
+				4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */,
+				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
 			);
 			path = OneOnOne;
+			sourceTree = "<group>";
+		};
+		4B6FA1012CB30809005AE578 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA0EA2CB2E6BE005AE578 /* SettingsItemCell.swift */,
+				4B6FA0EB2CB2E6BE005AE578 /* SettingsUserCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4B6FA1042CB30927005AE578 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B6FA1052CB3095D005AE578 /* DefaultUserAvatar.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +253,8 @@
 				4B6FA0F82CB2E6BE005AE578 /* SettingsItemCell.swift in Sources */,
 				4B6FA0F92CB2E6BE005AE578 /* SettingsUserCell.swift in Sources */,
 				4B6FA0FF2CB2FDEB005AE578 /* TextInputArea.swift in Sources */,
+				4B6FA1062CB3095D005AE578 /* DefaultUserAvatar.swift in Sources */,
+				4B6FA1032CB30885005AE578 /* ChatRoom+Extensions.swift in Sources */,
 				4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,

@@ -15,6 +15,11 @@ struct ChatsScreenView: View {
     // MARK: - Body
     var body: some View {
         NavigationStack {
+            
+            /*
+             Список чатов
+             List of chats
+             */
             List {
                 archiveButton()
                 

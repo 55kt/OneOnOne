@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct TextInputArea: View {
+    // MARK: - Properties
     @State private var messageText: String = ""
     
+    // MARK: - Body
     var body: some View {
         HStack(alignment: .bottom, spacing: 5) {
             imagePickerButton()
@@ -21,9 +23,14 @@ struct TextInputArea: View {
         .padding(.bottom)
         .padding(.horizontal, 8)
         .padding(.top, 10)
-        .background(Color.white) // Добавляем фон к TextInputArea
+        .background(Color(.systemBackground))
     }
     
+    // MARK: - Methods
+    /*
+     Функция поля воода сообщения
+     Message field function
+     */
     private func messageTextField() -> some View {
         TextField("", text: $messageText, axis: .vertical)
             .padding(5)
@@ -34,11 +41,19 @@ struct TextInputArea: View {
             .overlay(textViewBorder())
     }
     
+    /*
+     Контур воода сообщения
+     Message input border
+     */
     private func textViewBorder() -> some View {
         RoundedRectangle(cornerRadius: 10, style: .continuous)
             .stroke(Color(.systemGray3), lineWidth: 1)
     }
     
+    /*
+     Кнопка выбора изображения
+     Image picker button
+     */
     private func imagePickerButton() -> some View {
         Button {
             
@@ -48,6 +63,10 @@ struct TextInputArea: View {
         }
     }
     
+    /*
+     Кнопка записи аудио
+     Audio recorder button
+     */
     private func audioRecorderButton() -> some View {
         Button {
             
@@ -63,6 +82,10 @@ struct TextInputArea: View {
         }
     }
     
+    /*
+     Кнопка отправки сообщения
+     Send message button
+     */
     private func sendMessageButton() -> some View {
         Button {
             
@@ -77,6 +100,7 @@ struct TextInputArea: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     TextInputArea()
 }

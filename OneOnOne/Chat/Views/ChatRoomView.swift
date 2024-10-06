@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct ChatRoomView: View {
+    
+    // MARK: - Body
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(0..<15) { _ in
+                    /*
+                     Временная заглушка
+                     Placeholder content
+                     */
                     Text("PLACEHOLDER")
                         .font(.largeTitle)
                         .bold()
@@ -27,48 +33,13 @@ struct ChatRoomView: View {
             trailingUserAvatar()
         }
         .safeAreaInset(edge: .bottom) {
-                    TextInputArea()
+            TextInputArea()
                 .background(Color(.systemBackground))
-                }
-    }
-}
-
-extension ChatRoomView {
-    @ToolbarContentBuilder
-    private func trailingUserAvatar() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarTrailing) {
-            HStack {
-                ZStack {
-                    Circle()
-                        .fill(Color.gray.opacity(0.5))
-                        .frame(width: 40, height: 40)
-                    
-                    Image(systemName: "person.fill")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 20))
-                }
-                .padding(.bottom, 3)
-            }
-        }
-    }
-    
-    @ToolbarContentBuilder
-    private func toolbarUsername() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarTrailing) {
-            VStack {
-                Text("Username")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                    .bold()
-                
-                Text("Last seen recently")
-                    .font(.caption)
-            }
-            .padding(.trailing, 83)
         }
     }
 }
 
+// MARK: - Preview
 #Preview {
     NavigationStack {
         ChatRoomView()
