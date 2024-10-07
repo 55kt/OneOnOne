@@ -29,7 +29,7 @@ struct ChatRoomView: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .toolbar {
-            toolbarUsername()
+            toolbarUserInfo()
             trailingUserAvatar()
         }
         .safeAreaInset(edge: .bottom) {

@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+/*
+ Имя и информация пользователя
+ User name and information
+ */
+
 extension ChatRoomView {
     @ToolbarContentBuilder
      func trailingUserAvatar() -> some ToolbarContent {
@@ -16,8 +21,8 @@ extension ChatRoomView {
     }
     
     @ToolbarContentBuilder
-     func toolbarUsername() -> some ToolbarContent {
-         ToolbarItem(placement: .principal) {
+     func toolbarUserInfo() -> some ToolbarContent {
+         ToolbarItem(placement: .topBarTrailing) {
             VStack {
                 Text("Username")
                     .font(.body)
@@ -27,6 +32,7 @@ extension ChatRoomView {
                 Text("Last seen recently")
                     .font(.caption)
             }
+            .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 }

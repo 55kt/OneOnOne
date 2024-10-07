@@ -11,8 +11,7 @@ struct ChatUserCell: View {
     // MARK: - Body
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            Circle()
-                .frame(width: 60, height: 60)
+            DefaultUserAvatar(size: 60)
             
             VStack(alignment: .leading, spacing: 3) {
                 titleTextView()
