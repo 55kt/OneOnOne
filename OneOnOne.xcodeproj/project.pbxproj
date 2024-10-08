@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		4B5C843C2CAF183D009BF1C7 /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B5C843C2CAF183D009BF1C7 /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OneOnOne.app; path = "/Users/bobrkrwa/Development/myProjects/OneOnOne/build/Debug-iphoneos/OneOnOne.app"; sourceTree = "<absolute>"; };
 		4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsScreenView+Extensions.swift"; sourceTree = "<group>"; };
 		4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsScreenView.swift; sourceTree = "<group>"; };
@@ -56,28 +56,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B3E71492CB5837C0005318E /* New Group */ = {
+		4B3E714A2CB583CA0005318E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4B3E71462CB57D120005318E /* ThemeManager.swift */,
 			);
-			path = "New Group";
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		4B5C84332CAF183D009BF1C7 = {
 			isa = PBXGroup;
 			children = (
 				4B6FA0F02CB2E6BE005AE578 /* OneOnOne */,
-				4B5C843D2CAF183D009BF1C7 /* Products */,
-				4B3E71492CB5837C0005318E /* New Group */,
 			);
-			sourceTree = "<group>";
-		};
-		4B5C843D2CAF183D009BF1C7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4B5C843C2CAF183D009BF1C7 /* OneOnOne.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		4B6FA0DE2CB2E6BE005AE578 /* Components */ = {
@@ -159,9 +150,9 @@
 				4B6FA0E32CB2E6BE005AE578 /* Chat */,
 				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
 				4B6FA1042CB30927005AE578 /* Components */,
+				4B3E714A2CB583CA0005318E /* Managers */,
 				4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */,
 				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
-				4B3E71462CB57D120005318E /* ThemeManager.swift */,
 			);
 			path = OneOnOne;
 			sourceTree = "<group>";
@@ -230,7 +221,7 @@
 			mainGroup = 4B5C84332CAF183D009BF1C7;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 4B5C843D2CAF183D009BF1C7 /* Products */;
+			productRefGroup = 4B5C84332CAF183D009BF1C7;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
