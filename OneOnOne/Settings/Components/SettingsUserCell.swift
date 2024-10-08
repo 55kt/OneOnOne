@@ -13,8 +13,7 @@ struct SettingsUserCell: View {
     var body: some View {
         Section {
             HStack {
-                Circle()
-                    .frame(width: 55, height: 55)
+                DefaultUserAvatar(size: 55)
                 
                 userInfoView()
             }

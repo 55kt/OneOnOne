@@ -10,9 +10,13 @@ import SwiftUI
 @main
 struct OneOnOneApp: App {
     
+    @StateObject var themeManager = ThemeManager()
+    
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .environmentObject(themeManager)
+                .preferredColorScheme(themeManager.toggleDarkMode ? .dark : .light)
         }
     }
 }
