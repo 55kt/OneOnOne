@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct OneOnOneApp: App {
-    
+    // MARK: - Properties
     @StateObject var themeManager = ThemeManager()
     
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
             MainTabView()

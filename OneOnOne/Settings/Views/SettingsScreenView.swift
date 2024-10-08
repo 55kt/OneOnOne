@@ -40,23 +40,19 @@ struct SettingsScreenView: View {
             }
             .navigationTitle("Settings")
             .searchable(text: $searchText)
+            
+            /*
+             Кнопка темы
+             Theme button
+             */
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        themeManager.toggleDarkMode.toggle()
-                        themeManager.activateDarkMode = themeManager.toggleDarkMode
-                    } label: {
-                        Image(systemName: themeManager.toggleDarkMode ? "sun.max.fill" : "moon.fill")
-                            .font(.title2)
-                            .foregroundStyle(themeManager.toggleDarkMode ? Color.yellow : Color.primary)
-                            .foregroundStyle(Color.primary)
-                            .symbolEffect(.bounce, value: themeManager.toggleDarkMode)
-                            .frame(width: 40, height: 40)
-                    }
+                    themeManager.themeButton()
                 }
             }
         }
-        .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)
+        .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)  // Смена цветовой схемы, Change color scheme
+        
     }
 }
 

@@ -30,6 +30,10 @@ struct SettingsUserCell: View {
                 
                 Spacer()
                 
+                /*
+                 Кьюар кнопка для ссылки на пользователя
+                 QR link user button
+                 */
                 Image(.qrCode1)
                     .renderingMode(.template)
                     .resizable()
