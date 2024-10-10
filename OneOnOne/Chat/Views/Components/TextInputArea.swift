@@ -43,7 +43,7 @@ struct TextInputArea: View {
             .padding(5)
             .background(
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(Color.white)
+                    .fill(.appBlackWhite)
             )
             .overlay(textViewBorder())
     }

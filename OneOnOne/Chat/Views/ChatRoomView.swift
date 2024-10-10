@@ -23,6 +23,7 @@ struct ChatRoomView: View {
                         .bold()
                         .frame(maxWidth: .infinity)
                         .frame(height: 200)
+                        .foregroundStyle(.orange)
                         .background(Color.gray)
                 }
             }
@@ -36,6 +37,8 @@ struct ChatRoomView: View {
         .safeAreaInset(edge: .bottom) {
             TextInputArea()
         }
+        .scrollIndicators(.hidden)
+
     }
 }
 
