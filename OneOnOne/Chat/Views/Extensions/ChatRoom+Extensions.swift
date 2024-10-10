@@ -21,18 +21,19 @@ extension ChatRoomView {
     }
     
     @ToolbarContentBuilder
-     func toolbarUserInfo() -> some ToolbarContent {
-         ToolbarItem(placement: .topBarTrailing) {
-            VStack {
-                Text("Username")
-                    .font(.body)
+    func toolbarUserInfo() -> some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            VStack(spacing: 0) {
+                Text("Username Test")
+                    .font(.system(size: 17))
                     .fontWeight(.semibold)
-                    .bold()
+                    .multilineTextAlignment(.center)
+                    .lineLimit(1)
                 
                 Text("Last seen recently")
-                    .font(.caption)
+                    .font(.system(size: 12))
+                    .foregroundColor(.gray)
             }
-            .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 }

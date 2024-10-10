@@ -24,7 +24,8 @@ class ThemeManager: ObservableObject {
                 .font(.title2)
                 .foregroundStyle(toggleDarkMode ? Color.yellow : Color.primary)
                 .symbolEffect(.bounce, value: toggleDarkMode)
-                .frame(width: 40, height: 40)
+                .frame(width: 50, height: 50)
+                
         }
     }
 }

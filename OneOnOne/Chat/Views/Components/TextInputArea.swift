@@ -13,17 +13,24 @@ struct TextInputArea: View {
     
     // MARK: - Body
     var body: some View {
-        HStack(alignment: .bottom, spacing: 5) {
+        HStack() {
             imagePickerButton()
                 .padding(3)
-            audioRecorderButton()
             messageTextField()
-            sendMessageButton()
+            
+            /*
+             Анимация между кнопками audioRecorderButton и sendMessageButton
+             когда поле воода сообщения заполнено
+             Animation between audioRecorderButton and sendMessageButton
+             when the message field is full
+             */
+            (messageText.isEmpty ? AnyView(audioRecorderButton()) : AnyView(sendMessageButton()))
+                .symbolEffect(.bounce, value: messageText.isEmpty)
         }
         .padding(.bottom)
         .padding(.horizontal, 8)
         .padding(.top, 10)
-        .background(Color(.systemBackground))
+        .background(Color.appBackgroundColor)
     }
     
     // MARK: - Methods
@@ -32,11 +39,11 @@ struct TextInputArea: View {
      Message field function
      */
     private func messageTextField() -> some View {
-        TextField("", text: $messageText, axis: .vertical)
+        TextField("Message", text: $messageText, axis: .vertical)
             .padding(5)
             .background(
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .fill(Color(.systemGray6))
+                    .fill(Color.white)
             )
             .overlay(textViewBorder())
     }
@@ -47,7 +54,7 @@ struct TextInputArea: View {
      */
     private func textViewBorder() -> some View {
         RoundedRectangle(cornerRadius: 10, style: .continuous)
-            .stroke(Color(.systemGray3), lineWidth: 1)
+            .stroke(Color(.systemGray3), lineWidth: 0.2)
     }
     
     /*
@@ -58,8 +65,9 @@ struct TextInputArea: View {
         Button {
             
         } label: {
-            Image(systemName: "photo.on.rectangle.angled")
-                .font(.system(size: 22))
+            Image(systemName: "photo")
+                .foregroundStyle(.appButton)
+                .font(.system(size: 30))
         }
     }
     
@@ -71,14 +79,9 @@ struct TextInputArea: View {
         Button {
             
         } label: {
-            Image(systemName: "mic.fill")
-                .fontWeight(.heavy)
-                .imageScale(.small)
-                .foregroundStyle(.white)
-                .padding(6)
-                .background(.blue)
-                .clipShape(Circle())
-                .padding(.horizontal, 3)
+            Image(systemName: "mic")
+                .foregroundStyle(.appButton)
+                .font(.system(size: 24))
         }
     }
     
@@ -90,12 +93,9 @@ struct TextInputArea: View {
         Button {
             
         } label: {
-            Image(systemName: "arrow.up")
-                .fontWeight(.heavy)
-                .foregroundStyle(.white)
-                .padding(6)
-                .background(Color.blue)
-                .clipShape(Circle())
+            Image(systemName: "location.north.circle")
+                .foregroundStyle(.appButton)
+                .font(.system(size: 33))
         }
     }
 }

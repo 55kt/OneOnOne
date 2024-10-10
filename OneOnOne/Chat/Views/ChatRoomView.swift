@@ -23,18 +23,18 @@ struct ChatRoomView: View {
                         .bold()
                         .frame(maxWidth: .infinity)
                         .frame(height: 200)
-                        .background(Color.orange)
+                        .background(Color.gray)
                 }
             }
         }
         .toolbar(.hidden, for: .tabBar)
         .toolbar {
-            toolbarUserInfo()
             trailingUserAvatar()
+            toolbarUserInfo()
         }
+        .toolbarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             TextInputArea()
-                .background(Color(.systemBackground))
         }
     }
 }

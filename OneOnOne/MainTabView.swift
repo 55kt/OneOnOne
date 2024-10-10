@@ -33,7 +33,6 @@ struct MainTabView: View {
                     Text(Tab.settings.title)
                 }
         }
-        .accentColor(.orange)
     }
 }
 
@@ -87,4 +86,5 @@ extension MainTabView {
 // MARK: - Preview
 #Preview {
     MainTabView()
+        .environmentObject(ThemeManager())
 }
