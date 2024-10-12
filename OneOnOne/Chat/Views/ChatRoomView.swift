@@ -38,7 +38,6 @@ struct ChatRoomView: View {
             TextInputArea()
         }
         .scrollIndicators(.hidden)
-
     }
 }
 

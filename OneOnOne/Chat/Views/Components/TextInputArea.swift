@@ -17,6 +17,7 @@ struct TextInputArea: View {
             imagePickerButton()
                 .padding(3)
             messageTextField()
+            Spacer()
             
             /*
              Анимация между кнопками audioRecorderButton и sendMessageButton
@@ -26,11 +27,12 @@ struct TextInputArea: View {
              */
             (messageText.isEmpty ? AnyView(audioRecorderButton()) : AnyView(sendMessageButton()))
                 .symbolEffect(.bounce, value: messageText.isEmpty)
+                .frame(width: 40, height: 40)
         }
         .padding(.bottom)
         .padding(.horizontal, 8)
         .padding(.top, 10)
-        .background(Color.appBackgroundColor)
+        .background(Color.appBackground)
     }
     
     // MARK: - Methods
@@ -40,9 +42,9 @@ struct TextInputArea: View {
      */
     private func messageTextField() -> some View {
         TextField("Message", text: $messageText, axis: .vertical)
-            .padding(5)
+            .padding(8)
             .background(
-                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(.appBlackWhite)
             )
             .overlay(textViewBorder())
@@ -81,7 +83,7 @@ struct TextInputArea: View {
         } label: {
             Image(systemName: "mic")
                 .foregroundStyle(.appButton)
-                .font(.system(size: 24))
+                .font(.system(size: 27))
         }
     }
     
