@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E71462CB57D120005318E /* ThemeManager.swift */; };
 		4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E714D2CB6D7830005318E /* ColorsExtension.swift */; };
+		4B5C50C72CBAD70000C92EBD /* MessageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C50C62CBAD70000C92EBD /* MessageListController.swift */; };
+		4B5C50C92CBADC0300C92EBD /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C50C82CBADC0300C92EBD /* MessageListView.swift */; };
 		4B6FA0F12CB2E6BE005AE578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6FA0E42CB2E6BE005AE578 /* Preview Assets.xcassets */; };
 		4B6FA0F22CB2E6BE005AE578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */; };
 		4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */; };
@@ -30,6 +32,8 @@
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		4B3E714B2CB6C63A0005318E /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3E714D2CB6D7830005318E /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
+		4B5C50C62CBAD70000C92EBD /* MessageListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListController.swift; sourceTree = "<group>"; };
+		4B5C50C82CBADC0300C92EBD /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
 		4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsScreenView+Extensions.swift"; sourceTree = "<group>"; };
 		4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsScreenView.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				4B6FA0FC2CB2FBCE005AE578 /* ChatRoomView.swift */,
 				4B6FA0DE2CB2E6BE005AE578 /* Components */,
 				4B6FA0E02CB2E6BE005AE578 /* Extensions */,
+				4B5C50C62CBAD70000C92EBD /* MessageListController.swift */,
+				4B5C50C82CBADC0300C92EBD /* MessageListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */,
+				4B5C50C92CBADC0300C92EBD /* MessageListView.swift in Sources */,
 				4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */,
 				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
 				4B6FA0F62CB2E6BE005AE578 /* SettingsCell.swift in Sources */,
@@ -270,6 +277,7 @@
 				4B6FA0FF2CB2FDEB005AE578 /* TextInputArea.swift in Sources */,
 				4B6FA1062CB3095D005AE578 /* DefaultUserAvatar.swift in Sources */,
 				4B6FA1032CB30885005AE578 /* ChatRoom+Extensions.swift in Sources */,
+				4B5C50C72CBAD70000C92EBD /* MessageListController.swift in Sources */,
 				4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,

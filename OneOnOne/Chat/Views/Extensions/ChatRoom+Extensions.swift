@@ -23,7 +23,7 @@ extension ChatRoomView {
     @ToolbarContentBuilder
     func toolbarUserInfo() -> some ToolbarContent {
         ToolbarItem(placement: .principal) {
-            VStack(spacing: 0) {
+            VStack(alignment: .center, spacing: 0) {
                 Text("Username Test")
                     .font(.system(size: 17))
                     .fontWeight(.semibold)
@@ -33,6 +33,7 @@ extension ChatRoomView {
                 Text("Last seen recently")
                     .font(.system(size: 12))
                     .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
             }
         }
     }

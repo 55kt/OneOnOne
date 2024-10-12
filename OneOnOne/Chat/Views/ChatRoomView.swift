@@ -11,23 +11,7 @@ struct ChatRoomView: View {
     
     // MARK: - Body
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(0..<15) { _ in
-                    /*
-                     Временная заглушка
-                     Placeholder content
-                     */
-                    Text("PLACEHOLDER")
-                        .font(.largeTitle)
-                        .bold()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 200)
-                        .foregroundStyle(.orange)
-                        .background(Color.gray)
-                }
-            }
-        }
+        MessageListView()
         .toolbar(.hidden, for: .tabBar)
         .toolbar {
             trailingUserAvatar()
