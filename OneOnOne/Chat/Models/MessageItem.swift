@@ -13,14 +13,15 @@ struct MessageItem: Identifiable {
     // MARK: - Properties for messages
     let id = UUID().uuidString
     let text: String
+    let type: MessageType
     let direction: MessageDirection
     
     /*
      Заполнители для предварительного просмотра
      Preview Placeholders
      */
-    static let sentPlaceholder = MessageItem(text: "Hello, World!, I'm sent message placeholder", direction: .sent)
-    static let receivedPlaceholder = MessageItem(text: "Hello, World!, I'm received message placeholder", direction: .received)
+    static let sentPlaceholder = MessageItem(text: "Hello, World!, I'm sent message placeholder", type: .text, direction: .sent)
+    static let receivedPlaceholder = MessageItem(text: "Hello, World!, I'm received message placeholder", type: .text, direction: .received)
     
     /*
      Выравнивает еллементы по краям экрана в зависимости от сообщения
@@ -45,6 +46,16 @@ struct MessageItem: Identifiable {
     var backgroundColor: Color {
         return direction == .sent ? Color.gray : Color.orange
     }
+    
+    static let stubMessages: [MessageItem] = [
+        MessageItem(text: "Hello, World! This is text type Message stub", type: .text, direction: .received),
+        MessageItem(text: "Hello, World! This is photo type Message stub", type: .photo, direction: .sent),
+        MessageItem(text: "Hello, World! This is video type Message stub", type: .video, direction: .received)
+    ]
+}
+
+enum MessageType {
+    case text, photo, video
 }
 
 /*

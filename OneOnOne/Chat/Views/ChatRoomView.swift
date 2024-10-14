@@ -12,11 +12,13 @@ struct ChatRoomView: View {
     // MARK: - Body
     var body: some View {
         MessageListView()
+            .edgesIgnoringSafeArea(.bottom) 
         .toolbar(.hidden, for: .tabBar)
         .toolbar {
             trailingUserAvatar()
             toolbarUserInfo()
         }
+        .navigationBarTitleDisplayMode(.inline)
         .toolbarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             TextInputArea()

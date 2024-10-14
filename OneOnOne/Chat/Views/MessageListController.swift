@@ -39,7 +39,7 @@ final class MessageListController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-//        tableView.backgroundColor = .clear
+        tableView.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -56,7 +56,7 @@ final class MessageListController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
@@ -75,10 +75,15 @@ extension MessageListController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
+        let message = MessageItem.stubMessages[indexPath.row]
         
         cell.contentConfiguration = UIHostingConfiguration {
-            BubbleTextView(item: .receivedPlaceholder)
-            BubbleTextView(item: .sentPlaceholder)
+            switch message.type {
+            case .text:
+                BubbleTextView(item: message)
+            case .photo, .video:
+                BubbleImageView(item: message)
+            }
         }
         return cell
     }
@@ -88,7 +93,7 @@ extension MessageListController: UITableViewDelegate, UITableViewDataSource {
      This method tells the table how many rows should be in the section.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return MessageItem.stubMessages.count
     }
     
     /*

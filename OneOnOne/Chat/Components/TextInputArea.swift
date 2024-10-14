@@ -29,9 +29,8 @@ struct TextInputArea: View {
                 .symbolEffect(.bounce, value: messageText.isEmpty)
                 .frame(width: 40, height: 40)
         }
-        .padding(.bottom)
         .padding(.horizontal, 8)
-        .padding(.top, 10)
+        .padding(.top, 8)
         .background(Color.appBackground)
     }
     
