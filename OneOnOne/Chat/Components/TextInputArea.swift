@@ -55,7 +55,7 @@ struct TextInputArea: View {
      Message input border
      */
     private func textViewBorder() -> some View {
-        RoundedRectangle(cornerRadius: 10, style: .continuous)
+        RoundedRectangle(cornerRadius: 16, style: .continuous)
             .stroke(Color(.systemGray3), lineWidth: 0.2)
     }
     
