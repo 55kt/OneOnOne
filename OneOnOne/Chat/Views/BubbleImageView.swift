@@ -16,7 +16,7 @@ struct BubbleImageView: View {
         HStack {
             if item.direction == .sent { Spacer() }
             
-            HStack {
+            HStack {    
                 if item.direction == .sent { shareButton() }
                 
                 messageTextView()
@@ -34,18 +34,6 @@ struct BubbleImageView: View {
     }
     
     // MARK: - Methods
-    /*
-     Кнопка воспроизведения видео
-     Video play button
-     */
-    private func playButton() -> some View {
-        Image(systemName: "play.fill")
-            .padding()
-            .imageScale(.large)
-            .foregroundStyle(.gray)
-            .background(.thinMaterial)
-            .clipShape(Circle())
-    }
     
     /*
      Сообщение с содержимым картинки
@@ -64,10 +52,6 @@ struct BubbleImageView: View {
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .fill(Color(.systemGray5))
                 }
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .stroke(Color(.systemGray5))
-                )
                 .padding(5)
                 .overlay(alignment: .bottomTrailing) {
                     timeStampTextView()
@@ -77,6 +61,7 @@ struct BubbleImageView: View {
                 .padding([.horizontal, .bottom], 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .frame(width: 220)
+                .foregroundStyle(.appMessageText)
         }
         .background(item.backgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
@@ -101,6 +86,20 @@ struct BubbleImageView: View {
     }
     
     /*
+     Кнопка воспроизведения видео
+     Video play button
+     */
+    private func playButton() -> some View {
+        Image(systemName: "play.fill")
+            .padding()
+            .imageScale(.large)
+            .foregroundStyle(.gray)
+            .background(.thinMaterial)
+            .clipShape(Circle())
+            .padding(.bottom, 50)
+    }
+    
+    /*
      Время отправки сообщения
      Time to send the message
      */
@@ -119,7 +118,7 @@ struct BubbleImageView: View {
         .padding(.vertical, 2.5)
         .padding(.horizontal, 8)
         .foregroundStyle(.white)
-        .background(Color(.systemGray2))
+        .background(Color(.systemFill))
         .clipShape(Capsule())
         .padding(12)
     }

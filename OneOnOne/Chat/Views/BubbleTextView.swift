@@ -19,6 +19,7 @@ struct BubbleTextView: View {
                 .background(item.backgroundColor)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .applyTail(item.direction)
+                .foregroundStyle(.appMessageText)
             
             timeStampTextView()
         }
@@ -48,7 +49,7 @@ struct BubbleTextView: View {
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 15, height: 15)
-                    .foregroundStyle(Color(.systemBlue))
+                    .foregroundStyle(.seenMark)
             }
         }
     }

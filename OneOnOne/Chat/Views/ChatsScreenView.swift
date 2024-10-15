@@ -21,8 +21,6 @@ struct ChatsScreenView: View {
              List of chats
              */
             List {
-                archiveButton()
-                
                 ForEach(0..<20) { _ in
                     NavigationLink {
                         ChatRoomView()
@@ -36,9 +34,6 @@ struct ChatsScreenView: View {
             .navigationTitle("Chats")
             .searchable(text: $searchText)
             .listStyle(.plain)
-            .toolbar {
-                leadingNavItems()
-            }
         }
     }
 }

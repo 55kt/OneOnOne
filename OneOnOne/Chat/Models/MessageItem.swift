@@ -44,7 +44,7 @@ struct MessageItem: Identifiable {
      Message Color
      */
     var backgroundColor: Color {
-        return direction == .sent ? Color.gray : Color.orange
+        return direction == .sent ? Color.sentMessage : Color.receivedMessage
     }
     
     static let stubMessages: [MessageItem] = [
