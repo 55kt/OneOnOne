@@ -21,7 +21,7 @@ struct BubbleTextView: View {
                 .applyTail(item.direction)
                 .foregroundStyle(.appMessageText)
             
-            timeStampTextView()
+            TimeStampText(item: item, time: "15:23")
         }
         .shadow(color: Color(.systemGray3).opacity(0.1), radius: 5, x: 0, y: 20)
         .frame(maxWidth: .infinity, alignment: item.alignment)
@@ -30,29 +30,7 @@ struct BubbleTextView: View {
     }
     
     // MARK: - Methods
-    /*
-     Функция времени отправленного или полученного сообщения
-     Time function of a message sent or received
-     */
-    private func timeStampTextView() -> some View {
-        HStack {
-            Text("15:43")
-                .font(.system(size: 13))
-                .foregroundStyle(.gray)
-            
-            /*
-             Иконка(Просмотренного полученного сообщения) - Галочка
-             Icon (Viewed received message) - Check mark
-             */
-            if item.direction == .sent {
-                Image(.seen)
-                    .resizable()
-                    .renderingMode(.template)
-                    .frame(width: 15, height: 15)
-                    .foregroundStyle(.seenMark)
-            }
-        }
-    }
+    
 }
 
 // MARK: - Preview

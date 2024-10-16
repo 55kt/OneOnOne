@@ -54,7 +54,7 @@ struct BubbleImageView: View {
                 }
                 .padding(5)
                 .overlay(alignment: .bottomTrailing) {
-                    timeStampTextView()
+                    TimeStampCapsuleText(item: item, time: "12:22")
                 }
             
             Text(item.text)
@@ -79,7 +79,7 @@ struct BubbleImageView: View {
             Image(systemName: "arrowshape.turn.up.right.fill")
                 .padding(10)
                 .foregroundStyle(.white)
-                .background(Color.gray)
+                .background(.shareButton)
                 .background(.thinMaterial)
                 .clipShape(Circle())
         }
@@ -97,30 +97,6 @@ struct BubbleImageView: View {
             .background(.thinMaterial)
             .clipShape(Circle())
             .padding(.bottom, 50)
-    }
-    
-    /*
-     Время отправки сообщения
-     Time to send the message
-     */
-    private func timeStampTextView() -> some View {
-        HStack {
-            Text("14:51")
-                .font(.system(size: 12))
-            
-            if item.direction == .sent {
-                Image(.seen)
-                    .resizable()
-                    .renderingMode(.template)
-                    .frame(width: 15, height: 15)
-            }
-        }
-        .padding(.vertical, 2.5)
-        .padding(.horizontal, 8)
-        .foregroundStyle(.white)
-        .background(Color(.systemFill))
-        .clipShape(Capsule())
-        .padding(12)
     }
 }
 
