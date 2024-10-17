@@ -20,6 +20,9 @@ struct MessageItem: Identifiable {
      Заполнители для предварительного просмотра
      Preview Placeholders
      */
+    static let audioSentPlaceholder = MessageItem(text: "", type: .audio, direction: .sent)
+    static let audioReceivedPlaceholder = MessageItem(text: "", type: .audio, direction: .received)
+    
     static let sentPlaceholder = MessageItem(text: "Hello, World!, I'm sent message placeholder", type: .text, direction: .sent)
     static let receivedPlaceholder = MessageItem(text: "Hello, World!, I'm received message placeholder", type: .text, direction: .received)
     

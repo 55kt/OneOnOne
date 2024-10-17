@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E71462CB57D120005318E /* ThemeManager.swift */; };
 		4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E714D2CB6D7830005318E /* ColorsExtension.swift */; };
+		4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59FE412CC16C0C006E5468 /* shareButton.swift */; };
+		4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59FE452CC16FB4006E5468 /* mediaButton.swift */; };
 		4B5C50C72CBAD70000C92EBD /* MessageListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C50C62CBAD70000C92EBD /* MessageListController.swift */; };
 		4B5C50C92CBADC0300C92EBD /* MessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C50C82CBADC0300C92EBD /* MessageListView.swift */; };
 		4B5C50CC2CBAEDDE00C92EBD /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C50CB2CBAEDDE00C92EBD /* MessageItem.swift */; };
@@ -40,6 +42,8 @@
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		4B3E714B2CB6C63A0005318E /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3E714D2CB6D7830005318E /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
+		4B59FE412CC16C0C006E5468 /* shareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareButton.swift; sourceTree = "<group>"; };
+		4B59FE452CC16FB4006E5468 /* mediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mediaButton.swift; sourceTree = "<group>"; };
 		4B5C50C62CBAD70000C92EBD /* MessageListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListController.swift; sourceTree = "<group>"; };
 		4B5C50C82CBADC0300C92EBD /* MessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListView.swift; sourceTree = "<group>"; };
 		4B5C50CB2CBAEDDE00C92EBD /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				4B6FA0FE2CB2FDEB005AE578 /* TextInputArea.swift */,
 				4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */,
 				4BB75EE62CC01E560075BB14 /* TimeStampText.swift */,
+				4B59FE412CC16C0C006E5468 /* shareButton.swift */,
+				4B59FE452CC16FB4006E5468 /* mediaButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				4B6FA0F72CB2E6BE005AE578 /* SettingsScreenView.swift in Sources */,
 				4BB75EE32CC00ECA0075BB14 /* BubbleAudioView.swift in Sources */,
 				4BB75EE12CBD7ACF0075BB14 /* BubbleImageView.swift in Sources */,
+				4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */,
 				4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */,
 				4B6FA0F82CB2E6BE005AE578 /* SettingsItemCell.swift in Sources */,
 				4B6FA0F92CB2E6BE005AE578 /* SettingsUserCell.swift in Sources */,
@@ -327,6 +334,7 @@
 				4B5C50C72CBAD70000C92EBD /* MessageListController.swift in Sources */,
 				4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */,
 				4B5C50CC2CBAEDDE00C92EBD /* MessageItem.swift in Sources */,
+				4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
 				4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */,

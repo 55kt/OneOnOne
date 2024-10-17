@@ -18,7 +18,7 @@ struct BubbleAudioView: View {
     var body: some View {
         VStack(alignment: item.horizontalAlignment, spacing: 3) {
             HStack {
-                playButton()
+                mediaButton(for: item.type, direction: item.direction, action: {})
                 Slider(value: $sliderValue, in: sliderRange)
                     .tint(.gray)
                 
@@ -40,28 +40,14 @@ struct BubbleAudioView: View {
         .frame(maxWidth: .infinity, alignment: item.alignment)
         .padding(.leading, item.direction == .received ? 5 : 100)
         .padding(.trailing, item.direction == .received ? 100 : 5)
-
-    }
-    
-    // MARK: - Methods
-    private func playButton() -> some View {
-        Button {
-            // Some action
-        } label: {
-            Image(systemName: "play.fill")
-                .padding(10)
-                .background(item.direction == .received ? .gray.opacity(0.8) : .gray.opacity(0.8))
-                .clipShape(Circle())
-                .foregroundStyle(item.direction == .received ? .white : .black)
-        }
     }
 }
 
 // MARK: - Preview
 #Preview {
     ScrollView {
-        BubbleAudioView(item: .receivedPlaceholder)
-        BubbleAudioView(item: .sentPlaceholder)
+        BubbleAudioView(item: .audioSentPlaceholder)
+        BubbleAudioView(item: .audioReceivedPlaceholder)
     }
     .frame(maxWidth: .infinity)
     .padding(.horizontal)
