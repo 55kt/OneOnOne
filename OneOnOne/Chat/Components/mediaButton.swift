@@ -29,7 +29,7 @@ func mediaButton(for messageType: MessageType, direction: MessageDirection, acti
             Button(action: action) {
                 Image(systemName: "play.fill")
                     .padding(10)
-                    .background(direction == .received ? .gray.opacity(0.8) : .gray.opacity(0.8))
+                    .background(direction == .received ? .black.opacity(0.3) : .white.opacity(0.5))
                     .clipShape(Circle())
                     .foregroundStyle(direction == .received ? .white : .black)
             }

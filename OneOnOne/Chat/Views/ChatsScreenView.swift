@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChatsScreenView: View {
     // MARK: - Properties
-    // Временная переменная для текста в поисковом поле
     @State private var searchText: String = ""
     
     // MARK: - Body
