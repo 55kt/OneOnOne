@@ -41,6 +41,8 @@
 		4BB75EE32CC00ECA0075BB14 /* BubbleAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE22CC00ECA0075BB14 /* BubbleAudioView.swift */; };
 		4BB75EE52CC0144B0075BB14 /* TimeStampCapsuleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */; };
 		4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE62CC01E560075BB14 /* TimeStampText.swift */; };
+		4BC4D8512CC5515100A23A3B /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8502CC5515100A23A3B /* InitialView.swift */; };
+		4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8522CC5519F00A23A3B /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		4BB75EE22CC00ECA0075BB14 /* BubbleAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleAudioView.swift; sourceTree = "<group>"; };
 		4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampCapsuleText.swift; sourceTree = "<group>"; };
 		4BB75EE62CC01E560075BB14 /* TimeStampText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampText.swift; sourceTree = "<group>"; };
+		4BC4D8502CC5515100A23A3B /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		4BC4D8522CC5519F00A23A3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 				4B5C50D12CBD636000C92EBD /* Helpers */,
 				4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */,
 				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
+				4BC4D8502CC5515100A23A3B /* InitialView.swift */,
+				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
 			);
 			path = OneOnOne;
 			sourceTree = "<group>";
@@ -339,6 +345,7 @@
 				4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */,
 				4B5C50C92CBADC0300C92EBD /* MessageListView.swift in Sources */,
 				4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */,
+				4BC4D8512CC5515100A23A3B /* InitialView.swift in Sources */,
 				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
 				4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */,
 				4B6FA0F62CB2E6BE005AE578 /* SettingsCell.swift in Sources */,
@@ -359,6 +366,7 @@
 				4B5C50CC2CBAEDDE00C92EBD /* MessageItem.swift in Sources */,
 				4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
+				4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
 				4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */,
 			);

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct SettingsScreenView: View {
     // MARK: - Properties
@@ -41,6 +43,20 @@ struct SettingsScreenView: View {
             .navigationTitle("Settings")
             .searchable(text: $searchText)
             
+            Button {
+                Task {
+                    do {
+                        try await logOut()
+                    }
+                }
+            } label: {
+                Text("Log out")
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            
             /*
              Кнопка темы
              Theme button
@@ -53,6 +69,10 @@ struct SettingsScreenView: View {
         }
         .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)  // Смена цветовой схемы, Change color scheme
         
+    }
+    
+    private func logOut() async throws {
+        try Auth.auth().signOut()
     }
 }
 
