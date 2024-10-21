@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B2999D92CC69C0400061B91 /* SendVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */; };
 		4B2999DB2CC69FF200061B91 /* ConfirmVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */; };
+		4B2999DE2CC6AE0600061B91 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DD2CC6AE0600061B91 /* CountryData.swift */; };
 		4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E71462CB57D120005318E /* ThemeManager.swift */; };
 		4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E714D2CB6D7830005318E /* ColorsExtension.swift */; };
 		4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59FE412CC16C0C006E5468 /* shareButton.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeView.swift; sourceTree = "<group>"; };
 		4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVerifyCodeView.swift; sourceTree = "<group>"; };
+		4B2999DD2CC6AE0600061B91 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		4B3E714B2CB6C63A0005318E /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3E714D2CB6D7830005318E /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
@@ -102,6 +104,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */ = {
+			isa = PBXGroup;
+			children = (
+				4BC4D8502CC5515100A23A3B /* InitialView.swift */,
+				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
+				4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */,
+				4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */,
+				4B2999DD2CC6AE0600061B91 /* CountryData.swift */,
+			);
+			path = PhoneNumberVerification;
+			sourceTree = "<group>";
+		};
 		4B3E714A2CB583CA0005318E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +246,7 @@
 				4B59FE502CC2B5A9006E5468 /* GoogleService-Info.plist */,
 				4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */,
 				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
+				4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */,
 				4B6FA0E32CB2E6BE005AE578 /* Chat */,
 				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
 				4B6FA1042CB30927005AE578 /* Components */,
@@ -240,10 +255,6 @@
 				4B5C50D12CBD636000C92EBD /* Helpers */,
 				4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */,
 				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
-				4BC4D8502CC5515100A23A3B /* InitialView.swift */,
-				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
-				4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */,
-				4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */,
 			);
 			path = OneOnOne;
 			sourceTree = "<group>";
@@ -372,6 +383,7 @@
 				4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */,
 				4B2999DB2CC69FF200061B91 /* ConfirmVerifyCodeView.swift in Sources */,
 				4B5C50CC2CBAEDDE00C92EBD /* MessageItem.swift in Sources */,
+				4B2999DE2CC6AE0600061B91 /* CountryData.swift in Sources */,
 				4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
 				4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */,
