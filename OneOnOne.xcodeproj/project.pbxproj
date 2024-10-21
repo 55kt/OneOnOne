@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B2999D92CC69C0400061B91 /* SendVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */; };
+		4B2999DB2CC69FF200061B91 /* ConfirmVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */; };
 		4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E71462CB57D120005318E /* ThemeManager.swift */; };
 		4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E714D2CB6D7830005318E /* ColorsExtension.swift */; };
 		4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59FE412CC16C0C006E5468 /* shareButton.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeView.swift; sourceTree = "<group>"; };
+		4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVerifyCodeView.swift; sourceTree = "<group>"; };
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		4B3E714B2CB6C63A0005318E /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3E714D2CB6D7830005318E /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				4B6FA0E52CB2E6BE005AE578 /* Preview Content */,
 				4BC4D8502CC5515100A23A3B /* InitialView.swift */,
 				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
+				4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */,
+				4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */,
 			);
 			path = OneOnOne;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2999D92CC69C0400061B91 /* SendVerificationCodeView.swift in Sources */,
 				4B5C50D02CBAF28600C92EBD /* BubbleTailView.swift in Sources */,
 				4B5C50CE2CBAEEB000C92EBD /* BubbleTextView.swift in Sources */,
 				4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */,
@@ -363,6 +370,7 @@
 				4B6FA1032CB30885005AE578 /* ChatRoom+Extensions.swift in Sources */,
 				4B5C50C72CBAD70000C92EBD /* MessageListController.swift in Sources */,
 				4B6FA0FD2CB2FBCE005AE578 /* ChatRoomView.swift in Sources */,
+				4B2999DB2CC69FF200061B91 /* ConfirmVerifyCodeView.swift in Sources */,
 				4B5C50CC2CBAEDDE00C92EBD /* MessageItem.swift in Sources */,
 				4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,

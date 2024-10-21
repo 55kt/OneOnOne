@@ -10,6 +10,8 @@ import Firebase
 import FirebaseAuth
 
 struct ContentView: View {
+    
+    // MARK: - Properties
     @State private var phoneNumber: String = ""
     @State private var verificationID: String?
     @State private var verificationCode: String = ""
@@ -17,26 +19,16 @@ struct ContentView: View {
     @State private var isAuthenticated: Bool = false
     @State private var errorMessage: String?
     
+    // MARK: - Body
     var body: some View {
-        VStack {
+        NavigationStack {
+            
             if isAuthenticated {
                 MainTabView()
-                
             } else {
                 if !isVerificationSent {
-                    TextField("Phone number", text: $phoneNumber)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .keyboardType(.phonePad)
                     
-                    Button(action: sendVerificationCode) {
-                        Text("Send Verification Code")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
-                    }
-                    .padding()
+                    SendVerificationCodeView(phoneNumberInput: $phoneNumber) { sendVerificationCode() }
                     
                     if let errorMessage = errorMessage {
                         Text(errorMessage)
@@ -44,18 +36,10 @@ struct ContentView: View {
                             .padding()
                     }
                 } else {
-                    TextField("Verification code", text: $verificationCode)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
                     
-                    Button(action: verifyCode) {
-                        Text("Verify Code")
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(8)
+                    ConfirmVerifyCodeView(verificationCode: $verificationCode) {
+                        verifyCode()
                     }
-                    .padding()
                     
                     if let errorMessage = errorMessage {
                         Text(errorMessage)
@@ -65,8 +49,9 @@ struct ContentView: View {
                 }
             }
         }
-        .padding()
     }
+    
+    // MARK: - Methods
     
     private func sendVerificationCode() {
         let phoneNumber = self.phoneNumber
@@ -103,6 +88,7 @@ struct ContentView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ContentView()
 }

@@ -12,26 +12,31 @@ struct InitialView: View {
     
     @State private var userLoggedIn = (Auth.auth().currentUser != nil)
     
+    @State private var authStateListenerHandle: AuthStateDidChangeListenerHandle?
+    
     
     var body: some View {
-        VStack{
+        NavigationStack {
+            
             if userLoggedIn{
                 MainTabView()
             } else {
                 EmptyView()
             }
             
-            
-        }.onAppear{
-            
-            Auth.auth().addStateDidChangeListener{auth, user in
-            
-                if (user != nil) {
-                    
+        }.onAppear {
+            // Сохраняем хэндлер
+            authStateListenerHandle = Auth.auth().addStateDidChangeListener { auth, user in
+                if let _ = user {
                     userLoggedIn = true
-                } else{
+                } else {
                     userLoggedIn = false
                 }
+            }
+        }.onDisappear {
+            // Удаляем хэндлер, когда View исчезает
+            if let handle = authStateListenerHandle {
+                Auth.auth().removeStateDidChangeListener(handle)
             }
         }
     }
