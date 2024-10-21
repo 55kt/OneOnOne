@@ -7,18 +7,24 @@
 
 import Foundation
 
-// Структура Country для хранения информации о стране
+/*
+ Структура Country для хранения информации о стране
+ Country structure for storing country information
+ */
 struct Country {
     var name: String
     let code: String
     let flag: String
     
     static var defaultCountry: Country {
-        return Country(name: "United Kingdom", code: "+44", flag: "🇬🇧")
+        return Country(name: "Albania", code: "+355", flag: "🇦🇱")
     }
 }
 
-// Массив со всеми странами
+/*
+ Массив со всеми странами
+ Array with all countries
+ */
 let allCountries: [Country] = [
     Country(name: "Afghanistan", code: "+93", flag: "🇦🇫"),
     Country(name: "Albania", code: "+355", flag: "🇦🇱"),

@@ -9,19 +9,18 @@ import SwiftUI
 import FirebaseAuth
 
 struct InitialView: View {
-    
+    // MARK: - Properties
     @State private var userLoggedIn = (Auth.auth().currentUser != nil)
-    
     @State private var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
-    
+    // MARK: - Body
     var body: some View {
         NavigationStack {
             
             if userLoggedIn{
                 MainTabView()
             } else {
-                EmptyView()
+                SendVerificationCodeView(phoneNumberInput: .constant("")) {}
             }
             
         }.onAppear {
@@ -42,6 +41,7 @@ struct InitialView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     InitialView()
 }

@@ -10,6 +10,8 @@
 		4B2999D92CC69C0400061B91 /* SendVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */; };
 		4B2999DB2CC69FF200061B91 /* ConfirmVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */; };
 		4B2999DE2CC6AE0600061B91 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DD2CC6AE0600061B91 /* CountryData.swift */; };
+		4B2999E02CC6BC8C00061B91 /* CountryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DF2CC6BC8C00061B91 /* CountryPicker.swift */; };
+		4B2999E22CC6C78900061B91 /* VerificationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999E12CC6C78900061B91 /* VerificationButton.swift */; };
 		4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E71462CB57D120005318E /* ThemeManager.swift */; };
 		4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E714D2CB6D7830005318E /* ColorsExtension.swift */; };
 		4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59FE412CC16C0C006E5468 /* shareButton.swift */; };
@@ -52,6 +54,8 @@
 		4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeView.swift; sourceTree = "<group>"; };
 		4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVerifyCodeView.swift; sourceTree = "<group>"; };
 		4B2999DD2CC6AE0600061B91 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
+		4B2999DF2CC6BC8C00061B91 /* CountryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPicker.swift; sourceTree = "<group>"; };
+		4B2999E12CC6C78900061B91 /* VerificationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationButton.swift; sourceTree = "<group>"; };
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		4B3E714B2CB6C63A0005318E /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3E714D2CB6D7830005318E /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */,
 				4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */,
 				4B2999DD2CC6AE0600061B91 /* CountryData.swift */,
+				4B2999DF2CC6BC8C00061B91 /* CountryPicker.swift */,
+				4B2999E12CC6C78900061B91 /* VerificationButton.swift */,
 			);
 			path = PhoneNumberVerification;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 				4B6FA0F72CB2E6BE005AE578 /* SettingsScreenView.swift in Sources */,
 				4BB75EE32CC00ECA0075BB14 /* BubbleAudioView.swift in Sources */,
 				4BB75EE12CBD7ACF0075BB14 /* BubbleImageView.swift in Sources */,
+				4B2999E02CC6BC8C00061B91 /* CountryPicker.swift in Sources */,
 				4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */,
 				4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */,
 				4B6FA0F82CB2E6BE005AE578 /* SettingsItemCell.swift in Sources */,
@@ -388,6 +395,7 @@
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
 				4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
+				4B2999E22CC6C78900061B91 /* VerificationButton.swift in Sources */,
 				4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
