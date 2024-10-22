@@ -91,5 +91,5 @@ struct CountrySelectionView: View {
 }
 
 #Preview {
-    CountryPicker(selectedCountry: .constant(.defaultCountry))
+    CountryPicker(selectedCountry: .constant(Country.defaultCountry))
 }

@@ -19,6 +19,8 @@ struct ContentView: View {
     @State private var isAuthenticated: Bool = false
     @State private var errorMessage: String?
     
+    @State var selectedCountry: Country
+    
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -28,7 +30,7 @@ struct ContentView: View {
             } else {
                 if !isVerificationSent {
                     
-                    SendVerificationCodeView(phoneNumberInput: $phoneNumber) { sendVerificationCode() }
+                    SendVerificationCodeView(phoneNumberInput: $phoneNumber, selectedCountry: $selectedCountry) { sendVerificationCode() }
                     
                     if let errorMessage = errorMessage {
                         Text(errorMessage)
@@ -53,9 +55,24 @@ struct ContentView: View {
     
     // MARK: - Methods
     
+    /*
+     Отправляет код подтверждения на номер телефона пользователя с помощью аутентификации телефона Firebase.
+     Он объединяет номер телефона с кодом страны, отправляет код и обрабатывает ошибки или успехи.
+     Sends a verification code to the user's phone number using Firebase Phone Authentication.
+     It combines the phone number with a country code, sends the code, and handles errors or success.
+     */
     private func sendVerificationCode() {
         let phoneNumber = self.phoneNumber
-        let phoneNumberWithCountryCode = "+30\(phoneNumber)" // Replace "+1" with the country code if needed
+        let countryCode = selectedCountry.code.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let phoneNumberWithCountryCode = "\(countryCode)\(phoneNumber)"
+        
+        print("Sending phone number: \(phoneNumberWithCountryCode)")
+        
+        guard phoneNumber.count > 6 && phoneNumber.count < 15 else {
+                self.errorMessage = "Error: Phone number is too long or too short"
+                return
+            }
         
         PhoneAuthProvider.provider()
             .verifyPhoneNumber(phoneNumberWithCountryCode, uiDelegate: nil) { (verificationID, error) in
@@ -69,6 +86,12 @@ struct ContentView: View {
             }
     }
     
+    /*
+     Проверяет код подтверждения по SMS, предоставленный пользователем.
+     Он использует сохраненный идентификатор проверки и код для создания учетных данных и пытается войти в систему пользователя через аутентификацию Firebase.
+     Verifies the SMS verification code provided by the user.
+     It uses the stored verification ID and code to create a credential and attempts to sign in the user via Firebase Authentication.
+     */
     private func verifyCode() {
         guard let verificationID = self.verificationID else {
             self.errorMessage = "Verification ID is missing."
@@ -90,5 +113,5 @@ struct ContentView: View {
 
 // MARK: - Preview
 #Preview {
-    ContentView()
+    ContentView(selectedCountry: Country.defaultCountry)
 }

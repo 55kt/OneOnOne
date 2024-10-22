@@ -11,9 +11,9 @@ struct SendVerificationCodeView: View {
     
     // MARK: - Properties
     @Binding var phoneNumberInput: String
-    @State private var selectedCountry: Country = .defaultCountry
+    @Binding var selectedCountry: Country
     @State var action: () -> ()
-    
+
     // MARK: - Body
     var body: some View {
         VStack(spacing: 20) {
@@ -27,7 +27,7 @@ struct SendVerificationCodeView: View {
             HStack {
                 CountryPicker(selectedCountry: $selectedCountry)
                 
-                phoneInputArea()
+                NumField(numPlaceholder: $phoneNumberInput, fieldDescription: "Phone number")
             }
             
             /*
@@ -50,23 +50,10 @@ struct SendVerificationCodeView: View {
             .foregroundColor(.primary)
             .padding(.top, 40)
     }
-    
-    private func phoneInputArea() -> some View {
-        TextField("Phone number", text: $phoneNumberInput)
-            .keyboardType(.phonePad)
-            .padding()
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(8)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray.opacity(0.4), lineWidth: 1)
-            )
-    }
 }
 
 // MARK: - Preview
 #Preview {
-    SendVerificationCodeView(phoneNumberInput: .constant(""), action: {
-    })
+    SendVerificationCodeView(phoneNumberInput: .constant(""), selectedCountry: .constant(Country.defaultCountry)) {}
 }
 

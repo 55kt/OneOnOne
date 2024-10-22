@@ -13,6 +13,9 @@ struct InitialView: View {
     @State private var userLoggedIn = (Auth.auth().currentUser != nil)
     @State private var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
+    @State var selectedCountry: Country
+    @State private var phoneNumber: String = ""
+    
     // MARK: - Body
     var body: some View {
         NavigationStack {
@@ -20,7 +23,7 @@ struct InitialView: View {
             if userLoggedIn{
                 MainTabView()
             } else {
-                SendVerificationCodeView(phoneNumberInput: .constant("")) {}
+                SendVerificationCodeView(phoneNumberInput: $phoneNumber, selectedCountry: $selectedCountry) {}
             }
             
         }.onAppear {
@@ -43,5 +46,5 @@ struct InitialView: View {
 
 // MARK: - Preview
 #Preview {
-    InitialView()
+    InitialView(selectedCountry: Country.defaultCountry)
 }

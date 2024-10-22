@@ -20,7 +20,7 @@ struct OneOnOneApp: App {
     // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(selectedCountry: Country.defaultCountry)
                 .environmentObject(themeManager)
                 .preferredColorScheme(themeManager.toggleDarkMode ? .dark : .light)
         }
