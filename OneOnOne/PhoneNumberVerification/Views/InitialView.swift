@@ -27,7 +27,10 @@ struct InitialView: View {
             }
             
         }.onAppear {
-            // Сохраняем хэндлер
+            /*
+             Сохраняем хэндлер
+             Saves the handler
+             */
             authStateListenerHandle = Auth.auth().addStateDidChangeListener { auth, user in
                 if let _ = user {
                     userLoggedIn = true
@@ -36,7 +39,10 @@ struct InitialView: View {
                 }
             }
         }.onDisappear {
-            // Удаляем хэндлер, когда View исчезает
+            /*
+             Удаляем хэндлер, когда View исчезает
+             Removes the handler when the view disappears
+             */
             if let handle = authStateListenerHandle {
                 Auth.auth().removeStateDidChangeListener(handle)
             }
