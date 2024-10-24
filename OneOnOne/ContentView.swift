@@ -23,31 +23,28 @@ struct ContentView: View {
     
     // MARK: - Body
     var body: some View {
-        NavigationStack {
-            
-            if isAuthenticated {
-                MainTabView()
+        if isAuthenticated {
+            MainTabView()
+        } else {
+            if !isVerificationSent {
+                
+                SendVerificationCodeView(phoneNumberInput: $phoneNumber, selectedCountry: $selectedCountry) { sendVerificationCode() }
+                
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding()
+                }
             } else {
-                if !isVerificationSent {
-                    
-                    SendVerificationCodeView(phoneNumberInput: $phoneNumber, selectedCountry: $selectedCountry) { sendVerificationCode() }
-                    
-                    if let errorMessage = errorMessage {
-                        Text(errorMessage)
-                            .foregroundColor(.red)
-                            .padding()
-                    }
-                } else {
-                    
-                    ConfirmVerifyCodeView(verificationCode: $verificationCode) {
-                        verifyCode()
-                    }
-                    
-                    if let errorMessage = errorMessage {
-                        Text(errorMessage)
-                            .foregroundColor(.red)
-                            .padding()
-                    }
+                
+                ConfirmVerifyCodeView(verificationCode: $verificationCode) {
+                    verifyCode()
+                }
+                
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .padding()
                 }
             }
         }
@@ -113,5 +110,8 @@ struct ContentView: View {
 
 // MARK: - Preview
 #Preview {
-    ContentView(selectedCountry: Country.defaultCountry)
+    NavigationStack {
+        ContentView(selectedCountry: Country.defaultCountry)
+            .environmentObject(ThemeManager())
+    }
 }

@@ -24,10 +24,10 @@ struct CountryPicker: View {
                     
                     Text(selectedCountry.code)
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
+                        .foregroundStyle(.appSecondaryText)
                     
                     Image(systemName: "chevron.down")
-                        .foregroundColor(.gray)
+                        .foregroundStyle(.appSecondaryText)
                         .padding(.leading, 5)
                 }
                 .padding(.horizontal)
@@ -61,10 +61,11 @@ struct CountrySelectionView: View {
                             HStack {
                                 Text(country.flag)
                                 Text(country.name)
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(.appSecondaryText)
                                 Spacer()
                                 Text(country.code)
-                                    .foregroundColor(.black)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.appSecondaryText)
                             }
                         }
                     }

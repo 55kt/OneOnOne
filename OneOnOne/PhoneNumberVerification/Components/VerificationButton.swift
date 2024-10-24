@@ -27,7 +27,7 @@ struct VerificationButton: View {
                 .background(.receivedMessage)
                 .foregroundColor(.appMessageText)
                 .cornerRadius(10)
-                .shadow(color: Color.blue.opacity(0.4), radius: 5, x: 0, y: 5)
+                .shadow(color: Color.white.opacity(0.1), radius: 2, x: 0, y: 5)
         }
         .padding(.horizontal)
         .padding(.top, 20)

@@ -47,7 +47,7 @@ struct SendVerificationCodeView: View {
         Text("Enter your phone number")
             .font(.title2)
             .fontWeight(.bold)
-            .foregroundColor(.primary)
+            .foregroundColor(.appMessageText)
             .padding(.top, 40)
     }
 }

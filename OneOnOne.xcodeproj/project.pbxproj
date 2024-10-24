@@ -141,7 +141,6 @@
 		4B2999E72CC9558000061B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
 				4BC4D8502CC5515100A23A3B /* InitialView.swift */,
 				4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */,
 				4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */,
@@ -278,6 +277,7 @@
 				4B59FE522CC2E7AA006E5468 /* OneOnOne.entitlements */,
 				4B59FE502CC2B5A9006E5468 /* GoogleService-Info.plist */,
 				4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */,
+				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
 				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
 				4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */,
 				4B6FA0E32CB2E6BE005AE578 /* Chat */,
