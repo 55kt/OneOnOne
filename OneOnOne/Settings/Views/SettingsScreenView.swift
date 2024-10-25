@@ -39,6 +39,17 @@ struct SettingsScreenView: View {
                     SettingsItemCell(cell: .help)
                     SettingsItemCell(cell: .tellFriend)
                 }
+                
+                Button {
+                    Task{
+                        do {
+                            try await logOut()
+                        }
+                    }
+                } label: {
+                    Text("Log out")
+                        .foregroundColor(.red)
+                }.buttonStyle(.borderedProminent)
             }
             .navigationTitle("Settings")
             .searchable(text: $searchText)
@@ -55,6 +66,10 @@ struct SettingsScreenView: View {
         }
         .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)  // Смена цветовой схемы, Change color scheme
         
+    }
+    
+    private func logOut() async throws {
+        try Auth.auth().signOut()
     }
 }
 
