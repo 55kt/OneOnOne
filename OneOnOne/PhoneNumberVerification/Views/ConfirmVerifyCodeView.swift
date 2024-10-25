@@ -10,6 +10,7 @@ import SwiftUI
 struct ConfirmVerifyCodeView: View {
     
     // MARK: - Properties
+    @EnvironmentObject var authModel: AuthScreenModel
     @Binding var verificationCode: String
     @State var action: () -> ()
     
@@ -22,13 +23,14 @@ struct ConfirmVerifyCodeView: View {
              Поле воода кода верификации
              Verification code input area
              */
-            NumField(numPlaceholder: $verificationCode, fieldDescription: "Verification code")
+            NumField(numPlaceholder: $authModel.verificationCode, fieldDescription: "Verification code")
             
             /*
              Кнопка действия подтверждения кода верификации
              Verification code confirmation action button
              */
             VerificationButton(action: { action() }, title: "Verify code")
+                .disabled(authModel.disableConfirmButton)
             Spacer()
         }
         .padding()
@@ -49,4 +51,5 @@ struct ConfirmVerifyCodeView: View {
 // MARK: - Preview
 #Preview {
     ConfirmVerifyCodeView(verificationCode: .constant("")) {}
+        .environmentObject(AuthScreenModel())
 }

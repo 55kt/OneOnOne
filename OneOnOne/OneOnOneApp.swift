@@ -21,6 +21,7 @@ struct OneOnOneApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(selectedCountry: Country.defaultCountry)
+                .environmentObject(AuthScreenModel())
                 .environmentObject(themeManager)
                 .preferredColorScheme(themeManager.toggleDarkMode ? .dark : .light)
         }

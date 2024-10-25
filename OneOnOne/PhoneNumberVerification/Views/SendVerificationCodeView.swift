@@ -10,6 +10,7 @@ import SwiftUI
 struct SendVerificationCodeView: View {
     
     // MARK: - Properties
+    @EnvironmentObject var authModel: AuthScreenModel
     @Binding var phoneNumberInput: String
     @Binding var selectedCountry: Country
     @State var action: () -> ()
@@ -27,7 +28,7 @@ struct SendVerificationCodeView: View {
             HStack {
                 CountryPicker(selectedCountry: $selectedCountry)
                 
-                NumField(numPlaceholder: $phoneNumberInput, fieldDescription: "Phone number")
+                NumField(numPlaceholder: $authModel.phoneNumber, fieldDescription: "Phone number")
             }
             
             /*
@@ -35,6 +36,7 @@ struct SendVerificationCodeView: View {
              Confirmation button
              */
             VerificationButton(action: { action() }, title: "Send verification code")
+                .disabled(authModel.disablePhoneNumberButton)
             
             Spacer()
         }
@@ -55,5 +57,6 @@ struct SendVerificationCodeView: View {
 // MARK: - Preview
 #Preview {
     SendVerificationCodeView(phoneNumberInput: .constant(""), selectedCountry: .constant(Country.defaultCountry)) {}
+        .environmentObject(AuthScreenModel())
 }
 

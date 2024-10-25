@@ -12,9 +12,9 @@ import FirebaseAuth
 struct ContentView: View {
     
     // MARK: - Properties
-    @State private var phoneNumber: String = ""
+    @EnvironmentObject var authModel: AuthScreenModel
+    
     @State private var verificationID: String?
-    @State private var verificationCode: String = ""
     @State private var isVerificationSent: Bool = false
     @State private var isAuthenticated: Bool = false
     @State private var errorMessage: String?
@@ -28,7 +28,7 @@ struct ContentView: View {
         } else {
             if !isVerificationSent {
                 
-                SendVerificationCodeView(phoneNumberInput: $phoneNumber, selectedCountry: $selectedCountry) { sendVerificationCode() }
+                SendVerificationCodeView(phoneNumberInput: $authModel.phoneNumber, selectedCountry: $selectedCountry) { sendVerificationCode() }
                 
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
@@ -37,7 +37,7 @@ struct ContentView: View {
                 }
             } else {
                 
-                ConfirmVerifyCodeView(verificationCode: $verificationCode) {
+                ConfirmVerifyCodeView(verificationCode: $authModel.verificationCode) {
                     verifyCode()
                 }
                 
@@ -59,7 +59,7 @@ struct ContentView: View {
      It combines the phone number with a country code, sends the code, and handles errors or success.
      */
     private func sendVerificationCode() {
-        let phoneNumber = self.phoneNumber
+        let phoneNumber = authModel.phoneNumber
         let countryCode = selectedCountry.code.trimmingCharacters(in: .whitespacesAndNewlines)
         
         let phoneNumberWithCountryCode = "\(countryCode)\(phoneNumber)"
@@ -95,7 +95,9 @@ struct ContentView: View {
             return
         }
         
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
+        print("Verification code entered: \(authModel.verificationCode)")
+        
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: authModel.verificationCode)
         
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
@@ -113,5 +115,6 @@ struct ContentView: View {
     NavigationStack {
         ContentView(selectedCountry: Country.defaultCountry)
             .environmentObject(ThemeManager())
+            .environmentObject(AuthScreenModel())
     }
 }

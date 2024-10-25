@@ -49,6 +49,7 @@
 		4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE62CC01E560075BB14 /* TimeStampText.swift */; };
 		4BC4D8512CC5515100A23A3B /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8502CC5515100A23A3B /* InitialView.swift */; };
 		4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8522CC5519F00A23A3B /* ContentView.swift */; };
+		4BC739122CCAB7B400FB695E /* AuthScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		4BB75EE62CC01E560075BB14 /* TimeStampText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampText.swift; sourceTree = "<group>"; };
 		4BC4D8502CC5515100A23A3B /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		4BC4D8522CC5519F00A23A3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				4B2999E72CC9558000061B91 /* Views */,
+				4BC739102CCAB77D00FB695E /* ViewModels */,
 				4B2999E62CC9552800061B91 /* CountryPicker */,
 				4B2999E52CC7F3AC00061B91 /* Components */,
 			);
@@ -309,6 +312,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		4BC739102CCAB77D00FB695E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,6 +436,7 @@
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
 				4B2999E22CC6C78900061B91 /* VerificationButton.swift in Sources */,
 				4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */,
+				4BC739122CCAB7B400FB695E /* AuthScreenModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

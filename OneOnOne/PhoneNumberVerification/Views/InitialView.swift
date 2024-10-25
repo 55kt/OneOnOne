@@ -10,11 +10,12 @@ import FirebaseAuth
 
 struct InitialView: View {
     // MARK: - Properties
+    @ObservedObject private var authModel = AuthScreenModel()
+    
     @State private var userLoggedIn = (Auth.auth().currentUser != nil)
     @State private var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
     @State var selectedCountry: Country
-    @State private var phoneNumber: String = ""
     
     // MARK: - Body
     var body: some View {
@@ -23,7 +24,8 @@ struct InitialView: View {
             if userLoggedIn{
                 MainTabView()
             } else {
-                SendVerificationCodeView(phoneNumberInput: $phoneNumber, selectedCountry: $selectedCountry) {}
+                SendVerificationCodeView(phoneNumberInput: $authModel.phoneNumber, selectedCountry: $selectedCountry) {}
+                    .environmentObject(authModel)
             }
             
         }.onAppear {
