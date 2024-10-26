@@ -72,6 +72,7 @@ struct CountrySelectionView: View {
                 }
                 .searchable(text: $searchText, prompt: "Search country")
                 .navigationTitle("Select Country")
+                .animation(.default, value: searchText)
             }
         }
     }

@@ -47,9 +47,9 @@
 		4BB75EE32CC00ECA0075BB14 /* BubbleAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE22CC00ECA0075BB14 /* BubbleAudioView.swift */; };
 		4BB75EE52CC0144B0075BB14 /* TimeStampCapsuleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */; };
 		4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE62CC01E560075BB14 /* TimeStampText.swift */; };
-		4BC4D8512CC5515100A23A3B /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8502CC5515100A23A3B /* InitialView.swift */; };
 		4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8522CC5519F00A23A3B /* ContentView.swift */; };
 		4BC739122CCAB7B400FB695E /* AuthScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */; };
+		4BC739182CCD3F8700FB695E /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC739172CCD3F8700FB695E /* AuthProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,9 +92,9 @@
 		4BB75EE22CC00ECA0075BB14 /* BubbleAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleAudioView.swift; sourceTree = "<group>"; };
 		4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampCapsuleText.swift; sourceTree = "<group>"; };
 		4BB75EE62CC01E560075BB14 /* TimeStampText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampText.swift; sourceTree = "<group>"; };
-		4BC4D8502CC5515100A23A3B /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		4BC4D8522CC5519F00A23A3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenModel.swift; sourceTree = "<group>"; };
+		4BC739172CCD3F8700FB695E /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,6 @@
 		4B2999E72CC9558000061B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4BC4D8502CC5515100A23A3B /* InitialView.swift */,
 				4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */,
 				4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */,
 			);
@@ -282,6 +281,7 @@
 				4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */,
 				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
 				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
+				4BC739132CCD3F0F00FB695E /* Auth */,
 				4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */,
 				4B6FA0E32CB2E6BE005AE578 /* Chat */,
 				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
@@ -318,6 +318,22 @@
 				4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4BC739132CCD3F0F00FB695E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4BC739162CCD3F5300FB695E /* Services */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4BC739162CCD3F5300FB695E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4BC739172CCD3F8700FB695E /* AuthProvider.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,7 +423,7 @@
 				4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */,
 				4B5C50C92CBADC0300C92EBD /* MessageListView.swift in Sources */,
 				4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */,
-				4BC4D8512CC5515100A23A3B /* InitialView.swift in Sources */,
+				4BC739182CCD3F8700FB695E /* AuthProvider.swift in Sources */,
 				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
 				4B2999E42CC7EED900061B91 /* NumField.swift in Sources */,
 				4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */,

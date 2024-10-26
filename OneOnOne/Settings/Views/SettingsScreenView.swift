@@ -40,16 +40,7 @@ struct SettingsScreenView: View {
                     SettingsItemCell(cell: .tellFriend)
                 }
                 
-                Button {
-                    Task{
-                        do {
-                            try await logOut()
-                        }
-                    }
-                } label: {
-                    Text("Log out")
-                        .foregroundColor(.red)
-                }.buttonStyle(.borderedProminent)
+                logOutButton()
             }
             .navigationTitle("Settings")
             .searchable(text: $searchText)
@@ -68,6 +59,27 @@ struct SettingsScreenView: View {
         
     }
     
+    /*
+     Кнопка выхода пользователя
+     Log out button
+     */
+    private func logOutButton() -> some View {
+            Button {
+                Task {
+                  try await logOut()
+                }
+            } label: {
+                Text("Log out")
+                    .bold()
+                    .foregroundColor(.red) // Красный текст
+                    .frame(maxWidth: .infinity) // Кнопка растягивается по ширине
+            }
+        }
+    
+    /*
+     Выход из аккаунта
+     Log out from account
+     */
     private func logOut() async throws {
         try Auth.auth().signOut()
     }
