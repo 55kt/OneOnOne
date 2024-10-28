@@ -11,31 +11,23 @@ struct SendVerificationCodeView: View {
     
     // MARK: - Properties
     @EnvironmentObject var authModel: AuthScreenModel
-    @Binding var phoneNumberInput: String
-    @Binding var selectedCountry: Country
-    @State var action: () -> ()
-
+    
     // MARK: - Body
     var body: some View {
         VStack(spacing: 20) {
             
             title()
             
-            /*
-             Поле ввода с выбором страны
-             Input field with country selection
-             */
             HStack {
-                CountryPicker(selectedCountry: $selectedCountry)
-                
+                CountryPicker(selectedCountry: $authModel.selectedCountry)
                 NumField(numPlaceholder: $authModel.phoneNumber, fieldDescription: "Phone number")
             }
             
-            /*
-             Кнопка подтверждения
-             Confirmation button
-             */
-            VerificationButton(action: { action() }, title: "Send verification code")
+            VerificationButton(action: {
+                Task {
+                    await authModel.handleSignUp()
+                }
+            }, title: "Submit")
                 .disabled(authModel.disablePhoneNumberButton)
             
             Spacer()
@@ -44,7 +36,10 @@ struct SendVerificationCodeView: View {
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
     }
     
-    // MARK: - Methods
+    /*
+     Заголовок
+     Title
+     */
     private func title() -> some View {
         Text("Enter your phone number")
             .font(.title2)
@@ -56,7 +51,7 @@ struct SendVerificationCodeView: View {
 
 // MARK: - Preview
 #Preview {
-    SendVerificationCodeView(phoneNumberInput: .constant(""), selectedCountry: .constant(Country.defaultCountry)) {}
+    SendVerificationCodeView()
         .environmentObject(AuthScreenModel())
 }
 

@@ -11,6 +11,7 @@ import FirebaseAuth
 
 struct SettingsScreenView: View {
     // MARK: - Properties
+    @EnvironmentObject var authModel: AuthScreenModel
     @EnvironmentObject var themeManager: ThemeManager
     @State var searchText: String = ""
     
@@ -64,16 +65,21 @@ struct SettingsScreenView: View {
      Log out button
      */
     private func logOutButton() -> some View {
-            Button {
-                Task {
-                  try await logOut()
+        Button(action: {
+                    Task {
+                        await authModel.handleLogout()
+                    }
+                }) {
+                    Text("Log out")
+                        .foregroundColor(.red)
+                        .padding()
+                        .background(Color.clear)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red.opacity(0.5), lineWidth: 1)
+                        )
                 }
-            } label: {
-                Text("Log out")
-                    .bold()
-                    .foregroundColor(.red) // Красный текст
-                    .frame(maxWidth: .infinity) // Кнопка растягивается по ширине
-            }
         }
     
     /*

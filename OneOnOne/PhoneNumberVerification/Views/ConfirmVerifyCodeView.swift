@@ -11,34 +11,32 @@ struct ConfirmVerifyCodeView: View {
     
     // MARK: - Properties
     @EnvironmentObject var authModel: AuthScreenModel
-    @Binding var verificationCode: String
-    @State var action: () -> ()
     
     // MARK: - Body
     var body: some View {
         VStack(spacing: 20) {
             
             title()
-            /*
-             Поле воода кода верификации
-             Verification code input area
-             */
+            
             NumField(numPlaceholder: $authModel.verificationCode, fieldDescription: "Verification code")
             
-            /*
-             Кнопка действия подтверждения кода верификации
-             Verification code confirmation action button
-             */
-            VerificationButton(action: { action() }, title: "Verify code")
+            VerificationButton(action: {
+                Task {
+                    await authModel.handleLogin()
+                }
+            }, title: "Verify code")
                 .disabled(authModel.disableConfirmButton)
+            
             Spacer()
         }
         .padding()
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
-        
     }
     
-    // MARK: - Meyhods
+    /*
+     Заголовок
+     Title
+     */
     private func title() -> some View {
         Text("Enter verification code")
             .font(.title2)
@@ -50,6 +48,6 @@ struct ConfirmVerifyCodeView: View {
 
 // MARK: - Preview
 #Preview {
-    ConfirmVerifyCodeView(verificationCode: .constant("")) {}
+    ConfirmVerifyCodeView()
         .environmentObject(AuthScreenModel())
 }

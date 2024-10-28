@@ -47,7 +47,6 @@
 		4BB75EE32CC00ECA0075BB14 /* BubbleAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE22CC00ECA0075BB14 /* BubbleAudioView.swift */; };
 		4BB75EE52CC0144B0075BB14 /* TimeStampCapsuleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */; };
 		4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB75EE62CC01E560075BB14 /* TimeStampText.swift */; };
-		4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4D8522CC5519F00A23A3B /* ContentView.swift */; };
 		4BC739122CCAB7B400FB695E /* AuthScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */; };
 		4BC739182CCD3F8700FB695E /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC739172CCD3F8700FB695E /* AuthProvider.swift */; };
 /* End PBXBuildFile section */
@@ -92,7 +91,6 @@
 		4BB75EE22CC00ECA0075BB14 /* BubbleAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleAudioView.swift; sourceTree = "<group>"; };
 		4BB75EE42CC0144B0075BB14 /* TimeStampCapsuleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampCapsuleText.swift; sourceTree = "<group>"; };
 		4BB75EE62CC01E560075BB14 /* TimeStampText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStampText.swift; sourceTree = "<group>"; };
-		4BC4D8522CC5519F00A23A3B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4BC739112CCAB7B400FB695E /* AuthScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreenModel.swift; sourceTree = "<group>"; };
 		4BC739172CCD3F8700FB695E /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,7 +277,6 @@
 				4B59FE522CC2E7AA006E5468 /* OneOnOne.entitlements */,
 				4B59FE502CC2B5A9006E5468 /* GoogleService-Info.plist */,
 				4B6FA0EF2CB2E6BE005AE578 /* OneOnOneApp.swift */,
-				4BC4D8522CC5519F00A23A3B /* ContentView.swift */,
 				4B6FA0EE2CB2E6BE005AE578 /* MainTabView.swift */,
 				4BC739132CCD3F0F00FB695E /* Auth */,
 				4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */,
@@ -448,7 +445,6 @@
 				4B2999DE2CC6AE0600061B91 /* CountryData.swift in Sources */,
 				4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
-				4BC4D8532CC5519F00A23A3B /* ContentView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
 				4B2999E22CC6C78900061B91 /* VerificationButton.swift in Sources */,
 				4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */,
