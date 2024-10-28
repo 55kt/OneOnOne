@@ -22,12 +22,14 @@ struct OneOnOneApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                if authModel.isAuthenticated {
-                    MainTabView()
-                } else if authModel.isVerificationSent {
-                    ConfirmVerifyCodeView()
-                } else {
-                    SendVerificationCodeView()
+                Group {
+                    if authModel.isAuthenticated {
+                        MainTabView()
+                    } else if authModel.isVerificationSent {
+                        ConfirmVerifyCodeView()
+                    } else {
+                        SendVerificationCodeView()
+                    }
                 }
             }
             .environmentObject(authModel)
