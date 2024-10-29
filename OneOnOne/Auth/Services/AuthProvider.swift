@@ -100,15 +100,14 @@ final class AuthManager: AuthProvider {
         }
     }
 }
-    
-/*
- Создает нового юзера в БД
- Creates a new user in the DB
- */
     extension AuthManager {
+        
+        /*
+         Создает словарь с данными нового юзера в БД
+         Creates a dictionary with new user data in the DB
+         */
         private func saveUserInfoDatabase(user: UserItem) async throws {
                 do {
-                    // Составляем словарь пользователя с проверкой на nil
                     var userDictionary: [String: Any] = [
                         "uid": user.uid,
                         "phoneNumber": user.phoneNumber
@@ -124,13 +123,20 @@ final class AuthManager: AuthProvider {
                         userDictionary["profileImageUrl"] = profileImageUrl
                     }
                     
-                    // Сохранение информации пользователя в Firebase
+                    /*
+                     Сохраняем юзера в БД
+                     Saving the user in the DB
+                     */
                     try await Database.database().reference().child("users").child(user.id).setValue(userDictionary)
                 } catch {
                     print("🔐 Failed to Save Created user info to Database: \(error.localizedDescription)")
                 }
             }
         
+        /*
+         Запрашивает данные юзера из БД
+         Requests user data from the DB
+         */
         private func fetcCurrentUserInfo() {
                 guard let currentUid = Auth.auth().currentUser?.uid else { return }
                 
@@ -142,7 +148,7 @@ final class AuthManager: AuthProvider {
                     }
                     
                     DispatchQueue.main.async {
-                        self?.authState.send(.loggedIn) // Обновляем состояние аутентификации
+                        self?.authState.send(.loggedIn)
                     }
                     print("🔐 User: \(loggedInUser.username ?? "Unknown") is logged in")
                 } withCancel: { error in
@@ -151,10 +157,6 @@ final class AuthManager: AuthProvider {
             }
     }
     
-/*
- Этот struct делает
- 
- */
     struct UserItem: Identifiable, Hashable, Decodable {
         let uid: String
         let phoneNumber: String
@@ -167,6 +169,10 @@ final class AuthManager: AuthProvider {
         }
     }
 
+/*
+ Инициализирует UserItem из словаря
+ Initializes UserItem from dictionary
+ */
 extension UserItem {
     init?(dictionary: [String: Any]) {
         guard let uid = dictionary["uid"] as? String,
