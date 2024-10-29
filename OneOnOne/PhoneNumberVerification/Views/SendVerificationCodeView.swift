@@ -34,6 +34,12 @@ struct SendVerificationCodeView: View {
         }
         .padding()
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
+        .alert(isPresented: $authModel.errorState.showError) {
+            Alert(
+                title: Text(authModel.errorState.errorMessage),
+                dismissButton: .default(Text("OK"))
+                )
+        }
     }
     
     /*

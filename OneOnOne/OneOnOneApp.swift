@@ -21,18 +21,9 @@ struct OneOnOneApp: App {
     // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            Group {
-                if authModel.isAuthenticated {
-                    MainTabView()
-                } else if authModel.isVerificationSent {
-                    ConfirmVerifyCodeView()
-                } else {
-                    SendVerificationCodeView()
-                }
-            }
-            .environmentObject(authModel)
-            .environmentObject(themeManager)
-            .preferredColorScheme(themeManager.toggleDarkMode ? .dark : .light)
+            RootScreen()
+                .environmentObject(themeManager)
+                .preferredColorScheme(themeManager.toggleDarkMode ? .dark : .light)
         }
     }
 }
