@@ -49,31 +49,28 @@ struct CountrySelectionView: View {
     @State private var searchText = ""
     
     var body: some View {
-        VStack {
-            
-            NavigationStack {
-                List {
-                    ForEach(filteredCountries, id: \.code) { country in
-                        Button(action: {
-                            selectedCountry = country
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            HStack {
-                                Text(country.flag)
-                                Text(country.name)
-                                    .foregroundStyle(.appSecondaryText)
-                                Spacer()
-                                Text(country.code)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.appSecondaryText)
-                            }
+        NavigationStack {
+            List {
+                ForEach(filteredCountries, id: \.code) { country in
+                    Button(action: {
+                        selectedCountry = country
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            Text(country.flag)
+                            Text(country.name)
+                                .foregroundStyle(.appSecondaryText)
+                            Spacer()
+                            Text(country.code)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.appSecondaryText)
                         }
                     }
                 }
-                .searchable(text: $searchText, prompt: "Search country")
-                .navigationTitle("Select Country")
-                .animation(.default, value: searchText)
             }
+            .searchable(text: $searchText, prompt: "Search country")
+            .navigationTitle("Select Country")
+            .animation(.default, value: searchText)
         }
     }
     

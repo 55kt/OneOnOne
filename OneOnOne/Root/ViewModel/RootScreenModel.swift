@@ -13,8 +13,9 @@ final class RootScreenModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     init() {
-        cancellable = AuthManager.shared.authState.receive(on: DispatchQueue.main)
-            .sink {[weak self] latestAuthState in
+        self.cancellable = AuthManager.shared.authState
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] latestAuthState in
                 self?.authState = latestAuthState
             }
     }

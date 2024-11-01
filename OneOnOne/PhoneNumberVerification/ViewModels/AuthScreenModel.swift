@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor // Эта модель будет использоваться в главном потоке.
-           // 
+           //
 final class AuthScreenModel: ObservableObject {
     
     // MARK: - Properties

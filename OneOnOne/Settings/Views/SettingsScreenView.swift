@@ -65,22 +65,25 @@ struct SettingsScreenView: View {
      Log out button
      */
     private func logOutButton() -> some View {
-        Button(action: {
-                    Task {
-                        await authModel.handleLogout()
-                    }
-                }) {
-                    Text("Log out")
-                        .foregroundColor(.red)
-                        .padding()
-                        .background(Color.clear)
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.red.opacity(0.5), lineWidth: 1)
-                        )
+        VStack {
+            Button(action: {
+                Task {
+                    try? await AuthManager.shared.logout()
                 }
+            }) {
+                Text("Log out")
+                    .foregroundColor(.red)
+                    .padding(8)
+                    .background(Color.clear)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.red.opacity(0.5), lineWidth: 1)
+                    )
+            }
+            .frame(maxWidth: .infinity)
         }
+    }
     
     /*
      Выход из аккаунта
