@@ -32,11 +32,15 @@ protocol AuthProvider {
     func logout() async throws
 }
 
+// Перечисление ошибок для авторизации и создания пользователя
+// Enumeration for authorization and creating a user
 enum AuthError: Error {
     case accountCreationFailed(_ description: String)
     case failedToSaveUserInfo(_ description: String)
 }
 
+// Расширение для предоставления описания ошибок AuthError
+// Extension for providing error descriptions for AuthError
 extension AuthError: LocalizedError {
     var errorDescription: String? {
         switch self {
@@ -63,10 +67,8 @@ final class AuthManager: AuthProvider {
             Task { await autoLogin() }
         }
     
-    /*
-     Авто авторизация
-     Auto login
-     */
+    // Автоматически входит в аккаунт
+    // Auto logs in to the account
     func autoLogin() async {
             if Auth.auth().currentUser == nil {
                 authState.send(.loggedOut)
@@ -75,10 +77,8 @@ final class AuthManager: AuthProvider {
             }
         }
     
-    /*
-     Отправка кода верификации
-     Sending verification code
-     */
+    // Отправляем код верификации
+    // Send verification code
     func sendVerificationCode(to phoneNumber: String, withCountryCode countryCode: String) async throws -> String {
         let fullPhoneNumber = "\(countryCode)\(phoneNumber)"
         let verificationID = try await PhoneAuthProvider.provider().verifyPhoneNumber(fullPhoneNumber)
@@ -86,19 +86,39 @@ final class AuthManager: AuthProvider {
         return verificationID
     }
     
-    /*
-     Подтверждение кода верификации
-     Confirmation code verification
-     */
+    // Подтверждаем код верификации
+    // Confirm the verification code
     func verifyCode(_ verificationCode: String, with verificationID: String) async throws {
+        print("🔐 Starting verification with ID: \(verificationID) and code: \(verificationCode)")
+        
         do {
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
             let authResult = try await Auth.auth().signIn(with: credential)
-            let newUser = UserItem(uid: authResult.user.uid, phoneNumber: authResult.user.phoneNumber ?? "")
-            try await saveUserInfoDatabase(user: newUser)
-            self.authState.send(.loggedIn(newUser))
+            
+            let userID = authResult.user.uid
+            let userPhoneNumber = authResult.user.phoneNumber ?? ""
+            
+            // Проверка, существует ли пользователь в базе данных
+            // Check if the user exists in the database
+            let userRef = Database.database().reference().child("users").child(userID)
+            let snapshot = try await userRef.getData()
+            
+            if snapshot.exists() {
+                // Пользователь уже существует, просто обновляем состояние
+                // User already exists, just update the state
+                let existingUser = UserItem(uid: userID, phoneNumber: userPhoneNumber)
+                print("User already exists. Logging in.")
+                self.authState.send(.loggedIn(existingUser))
+            } else {
+                // Пользователь не существует, создаем его и сохраняем в базе данных
+                // User does not exist, create it and save to database
+                let newUser = UserItem(uid: userID, phoneNumber: userPhoneNumber)
+                try await saveUserInfoDatabase(user: newUser)
+                print("New user created and saved to database.")
+                self.authState.send(.loggedIn(newUser))
+            }
         } catch {
-            print("🔐 Failed to Create an account: (\(error.localizedDescription)")
+            print("🔐 Failed to verify or create an account: \(error.localizedDescription)")
             throw AuthError.accountCreationFailed(error.localizedDescription)
         }
     }

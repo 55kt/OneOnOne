@@ -73,18 +73,23 @@ final class AuthScreenModel: ObservableObject {
      Checks the verification code provided by the user.
      */
     func handleLogin() async {
+        print("Starting handleLogin")
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"), !verificationCode.isEmpty else {
             errorState = (true, "Verification ID or code is missing")
+            print("Verification ID or code is missing")
             return
         }
         
         isLoading = true
         do {
+            print("Calling verifyCode with ID: \(verificationID) and code: \(verificationCode)")
             try await authProvider.verifyCode(verificationCode, with: verificationID)
             isAuthenticated = true
             errorState = (false, "")
+            print("Verification successful, user is authenticated")
         } catch {
             errorState = (true, "Failed to verify code: \(error.localizedDescription)")
+            print("Failed to verify code: \(error.localizedDescription)")
         }
         isLoading = false
     }

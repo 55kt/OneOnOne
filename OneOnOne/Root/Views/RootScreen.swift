@@ -12,7 +12,12 @@ struct RootScreen: View {
     @EnvironmentObject var authModel: AuthScreenModel  // Подключаем AuthScreenModel
 
     var body: some View {
-        if authModel.isVerificationSent {
+        if authModel.isAuthenticated {
+            MainTabView()
+                .onAppear {
+                    print("RootScreen displaying: MainTabView")
+                }
+        } else if authModel.isVerificationSent {
             ConfirmVerifyCodeView()
                 .onAppear {
                     print("RootScreen displaying: ConfirmVerifyCodeView")
@@ -29,7 +34,7 @@ struct RootScreen: View {
             case .loggedIn(let loggedInUser):
                 MainTabView()
                     .onAppear {
-                        print("RootScreen displaying: MainTabView")
+                        print("RootScreen displaying: MainTabView via authState")
                     }
                     
             case .loggedOut:
