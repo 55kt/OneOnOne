@@ -46,49 +46,38 @@ struct SettingsScreenView: View {
             .navigationTitle("Settings")
             .searchable(text: $searchText)
             
-            /*
-             Кнопка темы
-             Theme button
-             */
+            // Кнопка изменения темы
+            // Theme change button
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     themeManager.themeButton()
                 }
             }
         }
-        .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)  // Смена цветовой схемы, Change color scheme
+        .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)
         
     }
     
-    /*
-     Кнопка выхода пользователя
-     Log out button
-     */
+    // Кнопка выхода пользователя
+    // User log out button
     private func logOutButton() -> some View {
-        VStack {
+        HStack {
             Button(action: {
                 Task {
-                    try? await AuthManager.shared.logout()
+                    try await AuthManager.shared.logout()
                 }
             }) {
-                Text("Log out")
+                Text("Sign Out")
+                    .font(.system(size: 18, weight: .semibold, design: .default))
                     .foregroundColor(.red)
-                    .padding(8)
-                    .background(Color.clear)
-                    .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.red.opacity(0.5), lineWidth: 1)
-                    )
+                    .underline()
             }
-            .frame(maxWidth: .infinity)
         }
+        .frame(maxWidth: .infinity)
     }
     
-    /*
-     Выход из аккаунта
-     Log out from account
-     */
+    // Выход из аккаунта
+    // Logs out of the account
     private func logOut() async throws {
         try Auth.auth().signOut()
     }

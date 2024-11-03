@@ -92,7 +92,7 @@ final class AuthManager: AuthProvider {
                 // User does not exist, create it and save to database
                 let newUser = UserItem(uid: userID, phoneNumber: userPhoneNumber)
                 try await saveUserInfoDatabase(user: newUser)
-                print("New user created and saved to database.")
+                print("New user \(newUser.phoneNumber) created and saved to database.")
                 self.authState.send(.loggedIn(newUser))
             }
         } catch {
@@ -159,7 +159,7 @@ extension AuthManager {
             
             // Сохраняем данные юзера в базе данных
             // Save user data to the database
-            try await Database.database().reference().child("users").child(user.id).setValue(userDictionary)
+            try await FirebaseConstants.UserRef.child(user.id).setValue(userDictionary)
         } catch {
             print("🔐 Failed to Save Created user info to Database: \(error.localizedDescription)")
             throw AuthError.failedToSaveUserInfo(error.localizedDescription)
@@ -170,7 +170,7 @@ extension AuthManager {
     // Requests user data from the database
     private func fetcCurrentUserInfo() {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        Database.database().reference().child("users").child(currentUid).observe(.value) {[weak self] snapshot in
+        FirebaseConstants.UserRef.child(currentUid).observe(.value) {[weak self] snapshot in
             
             guard let userDict = snapshot.value as? [String: Any] else { return }
             let loggedInUser = UserItem(dictionary: userDict)
@@ -182,41 +182,4 @@ extension AuthManager {
     }
 }
 
-struct UserItem: Identifiable, Hashable, Decodable {
-    let uid: String
-    let phoneNumber: String
-    var username: String? = nil
-    var dateOfBirth: Date? = nil
-    var profileImageUrl: String? = nil
-    
-    var id: String {
-        return uid
-    }
-}
 
-// Инициализирует UserItem из словаря
-// Initializes UserItem from dictionary
-extension UserItem {
-    init(dictionary: [String: Any]) {
-        self.uid = dictionary["uid"] as? String ?? ""
-        self.phoneNumber = dictionary["phoneNumber"] as? String ?? ""
-        self.username = dictionary["username"] as? String
-        self.dateOfBirth = dictionary["dateOfBirth"] as? Date
-        self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? nil
-    }
-}
-
-extension String {
-    static let uid = "uid"
-    static let phoneNumber = "phoneNumber"
-    static let username = "username"
-    static let dateOfBirth = "dateOfBirth"
-    static let profileImageUrl = "profileImageUrl"
-    
-    var isValidPhoneNumber: Bool {
-        let phoneNumberRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
-        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
-        let result =  phoneTest.evaluate(with: self)
-        return result
-    }
-}
