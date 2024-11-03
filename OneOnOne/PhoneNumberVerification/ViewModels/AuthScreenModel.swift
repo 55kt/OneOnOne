@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor // Эта модель будет использоваться в главном потоке.
-           //
+           // This model will be used in the main thread.
 final class AuthScreenModel: ObservableObject {
     
     // MARK: - Properties
@@ -47,7 +47,7 @@ final class AuthScreenModel: ObservableObject {
      Отправляет код подтверждения по SMS, предоставленный пользователем.
      Sends a verification code to the user's phone number using Firebase Phone Authentication.
      */
-    func handleSignUp() async {
+    func sendVerificationCode() async {
             isLoading = true
             do {
                 let countryCode = selectedCountry.code
@@ -72,7 +72,7 @@ final class AuthScreenModel: ObservableObject {
      Проверяет код подтверждения по SMS, предоставленный пользователем.
      Checks the verification code provided by the user.
      */
-    func handleLogin() async {
+    func verifyCodeAndLogin() async {
         print("Starting handleLogin")
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"), !verificationCode.isEmpty else {
             errorState = (true, "Verification ID or code is missing")

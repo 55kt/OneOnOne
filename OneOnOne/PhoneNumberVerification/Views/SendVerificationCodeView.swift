@@ -25,7 +25,7 @@ struct SendVerificationCodeView: View {
             
             VerificationButton(action: {
                 Task {
-                    await authModel.handleSignUp()
+                    await authModel.sendVerificationCode()
                 }
             }, title: "Submit")
                 .disabled(authModel.disablePhoneNumberButton)

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct RootScreen: View {
+    // MARK: - Properties
     @StateObject var viewModel = RootScreenModel()
     @EnvironmentObject var authModel: AuthScreenModel  // Подключаем AuthScreenModel
-
+    
+    // MARK: - Body
     var body: some View {
         if authModel.isAuthenticated {
             MainTabView()
@@ -47,6 +49,7 @@ struct RootScreen: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     RootScreen().environmentObject(AuthScreenModel())
 }

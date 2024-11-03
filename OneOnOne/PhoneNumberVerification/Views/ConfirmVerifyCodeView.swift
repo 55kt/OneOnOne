@@ -22,7 +22,7 @@ struct ConfirmVerifyCodeView: View {
             
             VerificationButton(action: {
                 Task {
-                    await authModel.handleLogin()
+                    await authModel.verifyCodeAndLogin()
                 }
             }, title: "Verify code")
                 .disabled(authModel.disableConfirmButton)

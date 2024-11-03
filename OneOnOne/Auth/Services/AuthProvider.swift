@@ -32,30 +32,8 @@ protocol AuthProvider {
     func logout() async throws
 }
 
-// Перечисление ошибок для авторизации и создания пользователя
-// Enumeration for authorization and creating a user
-enum AuthError: Error {
-    case accountCreationFailed(_ description: String)
-    case failedToSaveUserInfo(_ description: String)
-}
-
-// Расширение для предоставления описания ошибок AuthError
-// Extension for providing error descriptions for AuthError
-extension AuthError: LocalizedError {
-    var errorDescription: String? {
-        switch self {
-        case .accountCreationFailed(let description):
-            return description
-        case .failedToSaveUserInfo(let description):
-            return description
-        }
-    }
-}
-
-/*
- Класс для работы с авторизацией
- Class for working with authorization
- */
+// Класс для работы с авторизацией
+// Class for working with authorization
 final class AuthManager: AuthProvider {
     
     // MARK: - Properties
@@ -64,18 +42,18 @@ final class AuthManager: AuthProvider {
     
     // MARK: - Initializer
     private init() {
-            Task { await autoLogin() }
-        }
+        Task { await autoLogin() }
+    }
     
     // Автоматически входит в аккаунт
     // Auto logs in to the account
     func autoLogin() async {
-            if Auth.auth().currentUser == nil {
-                authState.send(.loggedOut)
-            } else {
-                fetcCurrentUserInfo()
-            }
+        if Auth.auth().currentUser == nil {
+            authState.send(.loggedOut)
+        } else {
+            fetcCurrentUserInfo()
         }
+    }
     
     // Отправляем код верификации
     // Send verification code
@@ -123,10 +101,8 @@ final class AuthManager: AuthProvider {
         }
     }
     
-    /*
-     Выход
-     Logout
-     */
+    // Выходит из аккаунта
+    // Logs out of the account
     func logout() async throws {
         do {
             try Auth.auth().signOut()
@@ -138,74 +114,88 @@ final class AuthManager: AuthProvider {
         }
     }
 }
-    extension AuthManager {
-        
-        /*
-         Создает словарь с данными нового юзера в БД
-         Creates a dictionary with new user data in the DB
-         */
-        private func saveUserInfoDatabase(user: UserItem) async throws {
-                do {
-                    var userDictionary: [String: Any] = [
-                        "uid": user.uid,
-                        "phoneNumber": user.phoneNumber
-                    ]
-                    
-                    if let username = user.username {
-                        userDictionary["username"] = username
-                    }
-                    if let dateOfBirth = user.dateOfBirth {
-                        userDictionary["dateOfBirth"] = dateOfBirth.timeIntervalSince1970
-                    }
-                    if let profileImageUrl = user.profileImageUrl {
-                        userDictionary["profileImageUrl"] = profileImageUrl
-                    }
-                    
-                    /*
-                     Сохраняем юзера в БД
-                     Saving the user in the DB
-                     */
-                    try await Database.database().reference().child("users").child(user.id).setValue(userDictionary)
-                } catch {
-                    print("🔐 Failed to Save Created user info to Database: \(error.localizedDescription)")
-                    throw AuthError.failedToSaveUserInfo(error.localizedDescription)
-                }
-            }
-        
-        /*
-         Запрашивает данные юзера из БД
-         Requests user data from the DB
-         */
-        private func fetcCurrentUserInfo() {
-                guard let currentUid = Auth.auth().currentUser?.uid else { return }
-            Database.database().reference().child("users").child(currentUid).observe(.value) {[weak self] snapshot in
-                
-                guard let userDict = snapshot.value as? [String: Any] else { return }
-                let loggedInUser = UserItem(dictionary: userDict)
-                self?.authState.send(.loggedIn(loggedInUser))
-                print("🔐 Fetched user info: \(loggedInUser.phoneNumber)")
-            } withCancel: { error in
-                print("🔐 Failed to fetch user info: \(error.localizedDescription)")
-            }
-            }
-    }
-    
-    struct UserItem: Identifiable, Hashable, Decodable {
-        let uid: String
-        let phoneNumber: String
-        var username: String? = nil
-        var dateOfBirth: Date? = nil
-        var profileImageUrl: String? = nil
-        
-        var id: String {
-            return uid
+
+// MARK: - Extensions
+// Перечисление ошибок для авторизации и создания пользователя
+// Enumeration for authorization and creating a user
+enum AuthError: Error {
+    case accountCreationFailed(_ description: String)
+    case failedToSaveUserInfo(_ description: String)
+}
+
+// Расширение для предоставления описания ошибок AuthError
+// Extension for providing error descriptions for AuthError
+extension AuthError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .accountCreationFailed(let description):
+            return description
+        case .failedToSaveUserInfo(let description):
+            return description
         }
     }
+}
 
-/*
- Инициализирует UserItem из словаря
- Initializes UserItem from dictionary
- */
+extension AuthManager {
+    
+    // Создает словарь с данными нового юзера в БД
+    // Creates a dictionary with new user data in the DB
+    private func saveUserInfoDatabase(user: UserItem) async throws {
+        do {
+            var userDictionary: [String: Any] = [
+                "uid": user.uid,
+                "phoneNumber": user.phoneNumber
+            ]
+            
+            if let username = user.username {
+                userDictionary["username"] = username
+            }
+            if let dateOfBirth = user.dateOfBirth {
+                userDictionary["dateOfBirth"] = dateOfBirth.timeIntervalSince1970
+            }
+            if let profileImageUrl = user.profileImageUrl {
+                userDictionary["profileImageUrl"] = profileImageUrl
+            }
+            
+            // Сохраняем данные юзера в базе данных
+            // Save user data to the database
+            try await Database.database().reference().child("users").child(user.id).setValue(userDictionary)
+        } catch {
+            print("🔐 Failed to Save Created user info to Database: \(error.localizedDescription)")
+            throw AuthError.failedToSaveUserInfo(error.localizedDescription)
+        }
+    }
+    
+    // Запрашивает данные юзера из БД
+    // Requests user data from the database
+    private func fetcCurrentUserInfo() {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("users").child(currentUid).observe(.value) {[weak self] snapshot in
+            
+            guard let userDict = snapshot.value as? [String: Any] else { return }
+            let loggedInUser = UserItem(dictionary: userDict)
+            self?.authState.send(.loggedIn(loggedInUser))
+            print("🔐 Fetched user info: \(loggedInUser.phoneNumber)")
+        } withCancel: { error in
+            print("🔐 Failed to fetch user info: \(error.localizedDescription)")
+        }
+    }
+}
+
+struct UserItem: Identifiable, Hashable, Decodable {
+    let uid: String
+    let phoneNumber: String
+    var username: String? = nil
+    var dateOfBirth: Date? = nil
+    var profileImageUrl: String? = nil
+    
+    var id: String {
+        return uid
+    }
+}
+
+// Инициализирует UserItem из словаря
+// Initializes UserItem from dictionary
 extension UserItem {
     init(dictionary: [String: Any]) {
         self.uid = dictionary["uid"] as? String ?? ""
