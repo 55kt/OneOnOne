@@ -149,18 +149,18 @@ extension AuthManager {
     private func saveUserInfoDatabase(user: UserItem) async throws {
         do {
             var userDictionary: [String: Any] = [
-                "uid": user.uid,
-                "phoneNumber": user.phoneNumber
+                .uid: user.uid,
+                .phoneNumber: user.phoneNumber
             ]
             
             if let username = user.username {
-                userDictionary["username"] = username
+                userDictionary[.username] = username
             }
             if let dateOfBirth = user.dateOfBirth {
-                userDictionary["dateOfBirth"] = dateOfBirth.timeIntervalSince1970
+                userDictionary[.dateOfBirth] = dateOfBirth.timeIntervalSince1970
             }
             if let profileImageUrl = user.profileImageUrl {
-                userDictionary["profileImageUrl"] = profileImageUrl
+                userDictionary[.profileImageUrl] = profileImageUrl
             }
             
             // Сохраняем данные юзера в базе данных
