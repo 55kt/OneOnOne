@@ -48,9 +48,12 @@ final class AuthManager: AuthProvider {
     // Автоматически входит в аккаунт
     // Auto logs in to the account
     func autoLogin() async {
+        print("autoLogin: Checking current user...")
         if Auth.auth().currentUser == nil {
+            print("autoLogin: No current user found, setting authState to .loggedOut")
             authState.send(.loggedOut)
         } else {
+            print("autoLogin: Current user found, fetching user info")
             fetcCurrentUserInfo()
         }
     }
@@ -105,11 +108,14 @@ final class AuthManager: AuthProvider {
     // Logs out of the account
     func logout() async throws {
         do {
+            print("logout: Attempting to sign out...")
             try Auth.auth().signOut()
+            print("logout: Successfully signed out, updating authState to .loggedOut")
             DispatchQueue.main.async {
                 self.authState.send(.loggedOut) // Обновляем состояние аутентификации
             }
         } catch {
+            print("logout: Error signing out - \(error.localizedDescription)")
             throw error
         }
     }
@@ -169,15 +175,23 @@ extension AuthManager {
     // Запрашивает данные юзера из БД
     // Requests user data from the database
     private func fetcCurrentUserInfo() {
-        guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        FirebaseConstants.UserRef.child(currentUid).observe(.value) {[weak self] snapshot in
-            
-            guard let userDict = snapshot.value as? [String: Any] else { return }
+        guard let currentUid = Auth.auth().currentUser?.uid else {
+            print("fetcCurrentUserInfo: No current user UID found, unable to fetch user info") // Сообщение, если UID отсутствует
+            return
+        }
+        print("fetcCurrentUserInfo: Fetching data for UID \(currentUid)") // Сообщение для начала запроса данных
+
+        FirebaseConstants.UserRef.child(currentUid).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let userDict = snapshot.value as? [String: Any] else {
+                print("fetcCurrentUserInfo: No data found for UID \(currentUid), setting authState to .loggedOut") // Сообщение, если данных для пользователя нет
+                self?.authState.send(.loggedOut)
+                return
+            }
             let loggedInUser = UserItem(dictionary: userDict)
+            print("fetcCurrentUserInfo: Successfully fetched data for user \(loggedInUser.phoneNumber), setting authState to .loggedIn") // Сообщение, если данные успешно получены
             self?.authState.send(.loggedIn(loggedInUser))
-            print("🔐 Fetched user info: \(loggedInUser.phoneNumber)")
         } withCancel: { error in
-            print("🔐 Failed to fetch user info: \(error.localizedDescription)")
+            print("fetcCurrentUserInfo: Failed to fetch user info with error: \(error.localizedDescription)") // Сообщение об ошибке
         }
     }
 }

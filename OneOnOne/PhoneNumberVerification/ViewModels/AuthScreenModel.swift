@@ -25,6 +25,7 @@ final class AuthScreenModel: ObservableObject {
     // MARK: - Initializer
     init(authProvider: AuthProvider = AuthManager.shared) {
         self.authProvider = authProvider
+        Task { await checkAutoLogin() }
     }
     
     /*
@@ -102,6 +103,8 @@ final class AuthScreenModel: ObservableObject {
             isLoading = true
             do {
                 try await AuthManager.shared.logout()
+                isAuthenticated = false
+                await checkAutoLogin()
                 DispatchQueue.main.async {
                     self.isAuthenticated = false
                     self.isVerificationSent = false

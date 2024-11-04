@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import FirebaseDatabase
 
 enum FirebaseConstants {
     private static let DatabaseRef = Database.database().reference()
