@@ -14,32 +14,27 @@ struct RootScreen: View {
     
     // MARK: - Body
     var body: some View {
-        if authModel.isAuthenticated {
-            MainTabView(.placeholder)
+        switch viewModel.authState {
+        case .pending:
+            ProgressView()
+                .controlSize(.large)
                 .onAppear {
-                    print("RootScreen displaying: MainTabView")
+                    print("RootScreen displaying: ProgressView")
                 }
-        } else if authModel.isVerificationSent {
-            ConfirmVerifyCodeView()
+            
+        case .loggedIn(let loggedInUser):
+            MainTabView(loggedInUser) 
                 .onAppear {
-                    print("RootScreen displaying: ConfirmVerifyCodeView")
+                    print("RootScreen displaying: MainTabView with loggedInUser")
                 }
-        } else {
-            switch viewModel.authState {
-            case .pending:
-                ProgressView()
-                    .controlSize(.large)
+            
+        case .loggedOut:
+            if authModel.isVerificationSent {
+                ConfirmVerifyCodeView()
                     .onAppear {
-                        print("RootScreen displaying: ProgressView")
+                        print("RootScreen displaying: ConfirmVerifyCodeView")
                     }
-                
-            case .loggedIn(let loggedInUser):
-                MainTabView(loggedInUser)
-                    .onAppear {
-                        print("RootScreen displaying: MainTabView via authState")
-                    }
-                    
-            case .loggedOut:
+            } else {
                 SendVerificationCodeView()
                     .onAppear {
                         print("RootScreen displaying: SendVerificationCodeView")
