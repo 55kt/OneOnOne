@@ -28,26 +28,22 @@ final class AuthScreenModel: ObservableObject {
         Task { await checkAutoLogin() }
     }
     
-    /*
-     Проверяет, является ли номер телефона и код подтверждения пустыми.
-     If the phone number or verification code is empty, returns true.
-     */
+    
+    // MARK: - Methods
+    // Проверяет, является ли номер телефона и код подтверждения пустыми.
+    // If the phone number or verification code is empty, returns true.
     var disablePhoneNumberButton: Bool {
         return phoneNumber.isEmpty || isLoading
     }
     
-    /*
-     Проверяет, является ли код подтверждения пустым.
-     If the verification code is empty, returns true.
-     */
+    // Проверяет, является ли код подтверждения пустым.
+    // If the verification code is empty, returns true.
     var disableConfirmButton: Bool {
         return verificationCode.isEmpty || isLoading
     }
     
-    /*
-     Отправляет код подтверждения по SMS, предоставленный пользователем.
-     Sends a verification code to the user's phone number using Firebase Phone Authentication.
-     */
+    // Отправляет код подтверждения по SMS, предоставленный пользователем.
+    // Sends a verification code to the user's phone number using Firebase Phone Authentication.
     func sendVerificationCode() async {
             isLoading = true
             do {
@@ -55,9 +51,10 @@ final class AuthScreenModel: ObservableObject {
                 let verificationID = try await AuthManager.shared.sendVerificationCode(to: phoneNumber, withCountryCode: countryCode)
                 
                 // Сохраняем verificationID и обновляем состояние
+                // Save verificationID and update status
                 UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
                 DispatchQueue.main.async {
-                    self.isVerificationSent = true // Обновляем состояние
+                    self.isVerificationSent = true
                     self.isLoading = false
                 }
             } catch {
@@ -69,10 +66,8 @@ final class AuthScreenModel: ObservableObject {
             }
         }
     
-    /*
-     Проверяет код подтверждения по SMS, предоставленный пользователем.
-     Checks the verification code provided by the user.
-     */
+    // Проверяет код подтверждения по SMS, предоставленный пользователем.
+    // Checks the verification code provided by the user.
     func verifyCodeAndLogin() async {
         print("Starting handleLogin")
         guard let verificationID = UserDefaults.standard.string(forKey: "authVerificationID"), !verificationCode.isEmpty else {
@@ -95,11 +90,9 @@ final class AuthScreenModel: ObservableObject {
         isLoading = false
     }
     
-    /*
-     Выходит из аккаунта.
-     Logs out of the account.
-     */
-    func handleLogout() async {
+    // Выходит из аккаунта - является оберткой вокруг функции logout в AuthManager
+    // Logs out of the account - is a wrapper around the logout function in AuthManager
+    func logoutAndResetState() async {
             isLoading = true
             do {
                 try await AuthManager.shared.logout()
@@ -120,10 +113,8 @@ final class AuthScreenModel: ObservableObject {
             }
         }
     
-    /*
-     Автоматически входит в аккаунт.
-     Auto logs in to the account.
-     */
+    // Автоматически входит в аккаунт.
+    // Auto logs in to the account.
     func checkAutoLogin() async {
         await authProvider.autoLogin()
     }

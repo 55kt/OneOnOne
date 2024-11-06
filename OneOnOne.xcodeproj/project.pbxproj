@@ -32,6 +32,7 @@
 		4B5C50D52CBD638C00C92EBD /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5C50D42CBD638C00C92EBD /* CustomModifiers.swift */; };
 		4B6D41672CD7CCB5006BD170 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6D41662CD7CCB5006BD170 /* UserItem.swift */; };
 		4B6D416A2CD7CD3B006BD170 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6D41692CD7CD3B006BD170 /* FirebaseConstants.swift */; };
+		4B6DAD9B2CDBD1C0000F81EC /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DAD9A2CDBD1C0000F81EC /* AuthErrors.swift */; };
 		4B6FA0F12CB2E6BE005AE578 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6FA0E42CB2E6BE005AE578 /* Preview Assets.xcassets */; };
 		4B6FA0F22CB2E6BE005AE578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B6FA0ED2CB2E6BE005AE578 /* Assets.xcassets */; };
 		4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */; };
@@ -80,6 +81,7 @@
 		4B5C50D42CBD638C00C92EBD /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		4B6D41662CD7CCB5006BD170 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		4B6D41692CD7CD3B006BD170 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		4B6DAD9A2CDBD1C0000F81EC /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		4B6FA0DD2CB2E6BE005AE578 /* ChatUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserCell.swift; sourceTree = "<group>"; };
 		4B6FA0DF2CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsScreenView+Extensions.swift"; sourceTree = "<group>"; };
 		4B6FA0E12CB2E6BE005AE578 /* ChatsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsScreenView.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				4BC739172CCD3F8700FB695E /* AuthProvider.swift */,
+				4B6DAD9A2CDBD1C0000F81EC /* AuthErrors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				4BC739182CCD3F8700FB695E /* AuthProvider.swift in Sources */,
 				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
 				4B2999E42CC7EED900061B91 /* NumField.swift in Sources */,
+				4B6DAD9B2CDBD1C0000F81EC /* AuthErrors.swift in Sources */,
 				4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */,
 				4B6FA0F62CB2E6BE005AE578 /* SettingsCell.swift in Sources */,
 				4B2D90E92CD174FF00560ECD /* RootScreen.swift in Sources */,

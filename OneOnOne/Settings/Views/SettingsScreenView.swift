@@ -55,7 +55,6 @@ struct SettingsScreenView: View {
             }
         }
         .preferredColorScheme(themeManager.activateDarkMode ? .dark : .light)
-        
     }
     
     // Кнопка выхода пользователя
