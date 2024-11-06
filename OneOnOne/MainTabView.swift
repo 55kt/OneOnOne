@@ -9,9 +9,12 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    // MARK: - Properties
+    private let currentUser: UserItem
+    
     // MARK: - Initializer
-    init() {
-
+    init(_ currentUser: UserItem) {
+        self.currentUser = currentUser
     }
     
     // MARK: - Body
@@ -85,6 +88,6 @@ extension MainTabView {
 
 // MARK: - Preview
 #Preview {
-    MainTabView()
+    MainTabView(.placeholder)
         .environmentObject(ThemeManager())
 }

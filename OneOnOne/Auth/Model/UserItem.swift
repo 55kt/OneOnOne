@@ -17,6 +17,8 @@ struct UserItem: Identifiable, Hashable, Decodable {
     var id: String {
         return uid
     }
+    
+    static let placeholder = UserItem(uid: "1", phoneNumber: "+306993244209", username: "Vlad", dateOfBirth: Date(), profileImageUrl: nil)
 }
 
 // Инициализирует UserItem из словаря

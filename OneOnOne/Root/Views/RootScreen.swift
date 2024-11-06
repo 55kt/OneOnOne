@@ -15,7 +15,7 @@ struct RootScreen: View {
     // MARK: - Body
     var body: some View {
         if authModel.isAuthenticated {
-            MainTabView()
+            MainTabView(.placeholder)
                 .onAppear {
                     print("RootScreen displaying: MainTabView")
                 }
@@ -34,7 +34,7 @@ struct RootScreen: View {
                     }
                 
             case .loggedIn(let loggedInUser):
-                MainTabView()
+                MainTabView(loggedInUser)
                     .onAppear {
                         print("RootScreen displaying: MainTabView via authState")
                     }
