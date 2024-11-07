@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct SearchPartnerView: View {
     // MARK: - Properties
     @State private var searchQuery: String = ""
@@ -14,6 +15,11 @@ struct SearchPartnerView: View {
     @State private var searchResults: [UserItem] = []
     @State private var isSearching: Bool = false
     
+    @State private var selectedGender: Gender = .any
+    @State private var ageRange: ClosedRange<Double> = 18.0...60.0
+    
+    @State private var minAge: Double = 18
+    @State private var maxAge: Double = 60
     // MARK: - Body
     var body: some View {
         VStack(spacing: 20) {
@@ -38,6 +44,32 @@ struct SearchPartnerView: View {
                     ForEach(tags, id: \.self) { tag in
                         TagView(tag: tag, onRemove: removeTag)
                     }
+                }
+                .padding(.horizontal)
+            }
+            
+            // Выбор пола
+            Picker("Пол собеседника", selection: $selectedGender) {
+                ForEach(Gender.allCases, id: \.self) { gender in
+                    Text(gender.rawValue.capitalized)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(.horizontal)
+            
+            // Возрастной диапазон
+            VStack(alignment: .leading) {
+                Text("Selected Age: \(Int(minAge)) - \(Int(maxAge))")
+                    .font(.subheadline)
+                    .bold()
+                
+                Slider(value: $minAge, in: 18...60, step: 1.0) {
+                    Text("Min Age")
+                }
+                .padding(.horizontal)
+                
+                Slider(value: $maxAge, in: 18...60, step: 1.0) {
+                    Text("Max Age")
                 }
                 .padding(.horizontal)
             }
@@ -100,21 +132,21 @@ struct SearchPartnerView: View {
         
         // Имитируем задержку для поиска (например, вызов API)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            // Пример поиска по тэгам, здесь вы могли бы добавить реальную логику поиска
-            searchResults = mockSearch(tags: tags) // Замените на настоящий поиск
+            // Пример поиска по тэгам и фильтрации по полу и возрасту
+            searchResults = mockSearch(tags: tags, gender: selectedGender, ageRange: ageRange)
             
             isSearching = false
         }
     }
     
     // Пример функции для имитации поиска
-    private func mockSearch(tags: [String]) -> [UserItem] {
+    private func mockSearch(tags: [String], gender: Gender, ageRange: ClosedRange<Double>) -> [UserItem] {
         let mockData: [UserItem] = [
             UserItem(uid: "1", phoneNumber: "+123456789", username: "Тест Пользователь", dateOfBirth: nil, profileImageUrl: nil),
             UserItem(uid: "2", phoneNumber: "+987654321", username: "Другой Пользователь", dateOfBirth: nil, profileImageUrl: nil)
         ]
         
-        // Пример логики для фильтрации по тэгам (может быть более сложной)
+        // Пример фильтрации по тэгам, полу и возрасту (может быть более сложной)
         return mockData.filter { user in
             tags.contains { tag in
                 user.username?.lowercased().contains(tag.lowercased()) ?? false
@@ -145,6 +177,13 @@ struct TagView: View {
         .background(Color.gray.opacity(0.1))
         .cornerRadius(20)
     }
+}
+
+// MARK: - Гендерные Опции
+enum Gender: String, CaseIterable {
+    case any = "Любой"
+    case male = "Мужской"
+    case female = "Женский"
 }
 
 // MARK: - Preview

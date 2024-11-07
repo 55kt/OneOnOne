@@ -25,7 +25,7 @@ struct MainTabView: View {
                     Image(systemName: Tab.chats.icon)
                     Text(Tab.chats.title)
                 }
-            placeholderItemView("Search")
+            SearchPartnerView()
                 .tabItem {
                     Image(systemName: Tab.search.icon)
                     Text(Tab.search.title)
