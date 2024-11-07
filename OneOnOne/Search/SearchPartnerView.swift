@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct SearchPartnerView: View {
     // MARK: - Properties
     @State private var searchQuery: String = ""
@@ -20,6 +19,7 @@ struct SearchPartnerView: View {
     
     @State private var minAge: Double = 18
     @State private var maxAge: Double = 60
+    
     // MARK: - Body
     var body: some View {
         VStack(spacing: 20) {
@@ -27,12 +27,16 @@ struct SearchPartnerView: View {
             HStack {
                 TextField("Введите тэг", text: $searchQuery)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
                 
                 Button(action: addTag) {
                     Image(systemName: "plus.circle.fill")
                         .foregroundColor(.blue)
+                        .font(.system(size: 24))
+                        .padding()
                 }
                 .disabled(searchQuery.isEmpty)
             }
@@ -49,29 +53,43 @@ struct SearchPartnerView: View {
             }
             
             // Выбор пола
-            Picker("Пол собеседника", selection: $selectedGender) {
-                ForEach(Gender.allCases, id: \.self) { gender in
-                    Text(gender.rawValue.capitalized)
+            VStack(alignment: .leading) {
+                Text("Пол собеседника")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .padding(.leading)
+                
+                Picker("Пол собеседника", selection: $selectedGender) {
+                    ForEach(Gender.allCases, id: \.self) { gender in
+                        Text(gender.rawValue.capitalized)
+                    }
                 }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
             }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding(.horizontal)
             
             // Возрастной диапазон
-            VStack(alignment: .leading) {
-                Text("Selected Age: \(Int(minAge)) - \(Int(maxAge))")
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Возрастной диапазон")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .padding(.leading)
+                
+                Text("Выбранный возраст: \(Int(minAge)) - \(Int(maxAge))")
                     .font(.subheadline)
                     .bold()
+                    .padding(.horizontal)
                 
-                Slider(value: $minAge, in: 18...60, step: 1.0) {
-                    Text("Min Age")
-                }
-                .padding(.horizontal)
+                Slider(value: $minAge, in: 18...60, step: 1.0)
+                    .accentColor(.blue)
+                    .padding(.horizontal)
                 
-                Slider(value: $maxAge, in: 18...60, step: 1.0) {
-                    Text("Max Age")
-                }
-                .padding(.horizontal)
+                Slider(value: $maxAge, in: 18...60, step: 1.0)
+                    .accentColor(.blue)
+                    .padding(.horizontal)
             }
             
             // Кнопка поиска
@@ -83,6 +101,7 @@ struct SearchPartnerView: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
                     .cornerRadius(10)
+                    .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
             }
             .padding(.horizontal)
             .disabled(tags.isEmpty)
@@ -99,17 +118,24 @@ struct SearchPartnerView: View {
                         VStack(alignment: .leading) {
                             Text(user.username ?? "Пользователь без имени")
                                 .font(.headline)
+                                .foregroundColor(.primary)
                             Text(user.phoneNumber)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
                     }
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 5)
                 }
-                .listStyle(InsetGroupedListStyle())
+                .listStyle(PlainListStyle())
             }
         }
         .navigationTitle("Поиск собеседника")
         .padding(.top)
+        .background(Color(UIColor.systemGroupedBackground))
+        .edgesIgnoringSafeArea(.bottom)
     }
     
     // MARK: - Methods
@@ -165,16 +191,18 @@ struct TagView: View {
             Text(tag)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
-                .background(Color.gray.opacity(0.2))
+                .background(Color.blue.opacity(0.2))
+                .foregroundColor(.blue)
+                .font(.subheadline)
                 .cornerRadius(15)
             
             Button(action: { onRemove(tag) }) {
                 Image(systemName: "xmark.circle.fill")
-                    .foregroundColor(.gray)
+                    .foregroundColor(.blue)
             }
         }
         .padding(5)
-        .background(Color.gray.opacity(0.1))
+        .background(Color.blue.opacity(0.1))
         .cornerRadius(20)
     }
 }
