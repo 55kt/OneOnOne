@@ -15,6 +15,7 @@
 		4B2999E42CC7EED900061B91 /* NumField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999E32CC7EED900061B91 /* NumField.swift */; };
 		4B2D90E92CD174FF00560ECD /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2D90E82CD174FF00560ECD /* RootScreen.swift */; };
 		4B2D90EC2CD1752A00560ECD /* RootScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2D90EB2CD1752A00560ECD /* RootScreenModel.swift */; };
+		4B3ACE322CDD40DA00E65C7C /* SearchPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3ACE312CDD40DA00E65C7C /* SearchPartnerView.swift */; };
 		4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E71462CB57D120005318E /* ThemeManager.swift */; };
 		4B3E714E2CB6D7830005318E /* ColorsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E714D2CB6D7830005318E /* ColorsExtension.swift */; };
 		4B59FE422CC16C0C006E5468 /* shareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B59FE412CC16C0C006E5468 /* shareButton.swift */; };
@@ -65,6 +66,7 @@
 		4B2999E32CC7EED900061B91 /* NumField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumField.swift; sourceTree = "<group>"; };
 		4B2D90E82CD174FF00560ECD /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
 		4B2D90EB2CD1752A00560ECD /* RootScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenModel.swift; sourceTree = "<group>"; };
+		4B3ACE312CDD40DA00E65C7C /* SearchPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPartnerView.swift; sourceTree = "<group>"; };
 		4B3E71462CB57D120005318E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		4B3E714B2CB6C63A0005318E /* OneOnOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneOnOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3E714D2CB6D7830005318E /* ColorsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtension.swift; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 				4B2D90EB2CD1752A00560ECD /* RootScreenModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4B3ACE302CDD40A700E65C7C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4B3ACE312CDD40DA00E65C7C /* SearchPartnerView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		4B3E714A2CB583CA0005318E /* Managers */ = {
@@ -317,6 +327,7 @@
 				4BC739132CCD3F0F00FB695E /* Auth */,
 				4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */,
 				4B6FA0E32CB2E6BE005AE578 /* Chat */,
+				4B3ACE302CDD40A700E65C7C /* Search */,
 				4B6FA0EC2CB2E6BE005AE578 /* Settings */,
 				4B6FA1042CB30927005AE578 /* Components */,
 				4B3E714A2CB583CA0005318E /* Managers */,
@@ -505,6 +516,7 @@
 				4B2999DE2CC6AE0600061B91 /* CountryData.swift in Sources */,
 				4B59FE462CC16FB4006E5468 /* mediaButton.swift in Sources */,
 				4B6FA0FA2CB2E6BE005AE578 /* MainTabView.swift in Sources */,
+				4B3ACE322CDD40DA00E65C7C /* SearchPartnerView.swift in Sources */,
 				4B6FA0FB2CB2E6BE005AE578 /* OneOnOneApp.swift in Sources */,
 				4B2999E22CC6C78900061B91 /* VerificationButton.swift in Sources */,
 				4B3E71472CB57D120005318E /* ThemeManager.swift in Sources */,
