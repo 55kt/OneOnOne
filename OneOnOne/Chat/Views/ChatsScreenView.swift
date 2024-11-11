@@ -24,7 +24,7 @@ struct ChatsScreenView: View {
                     NavigationLink {
                         ChatRoomView()
                     } label: {
-                        ChatUserCell()
+                        ChatUserCell(user: .placeholder)
                     }
                 }
                 inboxfooterView()

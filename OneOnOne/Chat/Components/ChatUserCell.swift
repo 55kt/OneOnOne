@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ChatUserCell: View {
+    // MARK: - Properties
+    let user: UserItem
+    
     // MARK: - Body
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
@@ -20,13 +23,11 @@ struct ChatUserCell: View {
         }
     }
     
-    /*
-     Имя Юзера
-     Username
-     */
+    // Имя пользователя
+    // Username
     private func titleTextView() -> some View {
         HStack {
-            Text("Username here")
+            Text(user.username ?? user.phoneNumber)
                 .lineLimit(1)
                 .bold()
             
@@ -38,10 +39,8 @@ struct ChatUserCell: View {
         }
     }
     
-    /*
-     Preview последнего сообщения
-     Preview of the latest message
-     */
+    // Preview последнего сообщения
+    // Last message preview
     private func lastMessagePreview() -> some View {
         Text("Text message preview")
             .font(.system(size: 16))
@@ -52,5 +51,5 @@ struct ChatUserCell: View {
 
 // MARK: - Preview
 #Preview {
-    ChatUserCell()
+    ChatUserCell(user: .placeholder)
 }

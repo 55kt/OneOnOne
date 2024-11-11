@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B2192982CE274400012B1A0 /* ChatPartnerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2192972CE274400012B1A0 /* ChatPartnerImageView.swift */; };
+		4B21929B2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21929A2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift */; };
 		4B26CC202CDE638F0067A7A9 /* FoundChatPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B26CC1F2CDE638F0067A7A9 /* FoundChatPartnerView.swift */; };
 		4B2999D92CC69C0400061B91 /* SendVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */; };
 		4B2999DB2CC69FF200061B91 /* ConfirmVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B2192972CE274400012B1A0 /* ChatPartnerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPartnerImageView.swift; sourceTree = "<group>"; };
+		4B21929A2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundChatPartnerViewExtensions.swift; sourceTree = "<group>"; };
 		4B26CC1F2CDE638F0067A7A9 /* FoundChatPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundChatPartnerView.swift; sourceTree = "<group>"; };
 		4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeView.swift; sourceTree = "<group>"; };
 		4B2999DA2CC69FF200061B91 /* ConfirmVerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVerifyCodeView.swift; sourceTree = "<group>"; };
@@ -124,6 +128,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B2192962CE274070012B1A0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B2192972CE274400012B1A0 /* ChatPartnerImageView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4B2192992CE27F2E0012B1A0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4B21929A2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4B2999DC2CC6AAA600061B91 /* PhoneNumberVerification */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +193,8 @@
 		4B3ACE302CDD40A700E65C7C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4B2192992CE27F2E0012B1A0 /* Extensions */,
+				4B2192962CE274070012B1A0 /* Components */,
 				4B3ACE312CDD40DA00E65C7C /* SearchPartnerView.swift */,
 				4B26CC1F2CDE638F0067A7A9 /* FoundChatPartnerView.swift */,
 			);
@@ -489,9 +511,11 @@
 				4B5C50CE2CBAEEB000C92EBD /* BubbleTextView.swift in Sources */,
 				4B6FA0F32CB2E6BE005AE578 /* ChatUserCell.swift in Sources */,
 				4B5C50C92CBADC0300C92EBD /* MessageListView.swift in Sources */,
+				4B21929B2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift in Sources */,
 				4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */,
 				4BC739182CCD3F8700FB695E /* AuthProvider.swift in Sources */,
 				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
+				4B2192982CE274400012B1A0 /* ChatPartnerImageView.swift in Sources */,
 				4B2999E42CC7EED900061B91 /* NumField.swift in Sources */,
 				4B6DAD9B2CDBD1C0000F81EC /* AuthErrors.swift in Sources */,
 				4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */,
