@@ -17,7 +17,7 @@ struct FoundChatPartnerView: View {
             VStack(spacing: 0) {
                 ZStack(alignment: .top) {
                     
-                    ChatPartnerImageView()
+                    ChatPartnerImage()
                     
                     VStack {
                         
@@ -45,23 +45,12 @@ struct FoundChatPartnerView: View {
                     dismissToolbarButton()
                 }
                 
-                // Раздел с информацией и кнопкой для начала чата
-                VStack(spacing: 20) {
-                    
-                    Button(action: {
-                        // Действие для кнопки начала чата
-                    }) {
-                        Text("Go Chat with Имя собеседника")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
-                    .padding(.horizontal)
-                }
-                .padding()
+                // Кнопка начала чата с найденным собеседником
+                // Button to start a chat with the found partner
+                FoundChatPartnerButton(onSearch: {
+                    // action
+                }, buttonName: "Start chat with \(user.username ?? "User")", isDisabled: false)
+                .padding(.top, 120)
                 
                 Spacer()
             }

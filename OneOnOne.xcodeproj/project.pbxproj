@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B2192982CE274400012B1A0 /* ChatPartnerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2192972CE274400012B1A0 /* ChatPartnerImageView.swift */; };
+		4B00A0EA2CE28BBC00CDFC33 /* FoundChatPartnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B00A0E92CE28BBC00CDFC33 /* FoundChatPartnerButton.swift */; };
+		4B2192982CE274400012B1A0 /* ChatPartnerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2192972CE274400012B1A0 /* ChatPartnerImage.swift */; };
 		4B21929B2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B21929A2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift */; };
 		4B26CC202CDE638F0067A7A9 /* FoundChatPartnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B26CC1F2CDE638F0067A7A9 /* FoundChatPartnerView.swift */; };
 		4B2999D92CC69C0400061B91 /* SendVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */; };
@@ -61,7 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4B2192972CE274400012B1A0 /* ChatPartnerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPartnerImageView.swift; sourceTree = "<group>"; };
+		4B00A0E92CE28BBC00CDFC33 /* FoundChatPartnerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundChatPartnerButton.swift; sourceTree = "<group>"; };
+		4B2192972CE274400012B1A0 /* ChatPartnerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPartnerImage.swift; sourceTree = "<group>"; };
 		4B21929A2CE27F610012B1A0 /* FoundChatPartnerViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundChatPartnerViewExtensions.swift; sourceTree = "<group>"; };
 		4B26CC1F2CDE638F0067A7A9 /* FoundChatPartnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundChatPartnerView.swift; sourceTree = "<group>"; };
 		4B2999D82CC69C0400061B91 /* SendVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVerificationCodeView.swift; sourceTree = "<group>"; };
@@ -131,7 +133,8 @@
 		4B2192962CE274070012B1A0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4B2192972CE274400012B1A0 /* ChatPartnerImageView.swift */,
+				4B2192972CE274400012B1A0 /* ChatPartnerImage.swift */,
+				4B00A0E92CE28BBC00CDFC33 /* FoundChatPartnerButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -515,8 +518,9 @@
 				4B6FA0F42CB2E6BE005AE578 /* ChatsScreenView+Extensions.swift in Sources */,
 				4BC739182CCD3F8700FB695E /* AuthProvider.swift in Sources */,
 				4B6FA0F52CB2E6BE005AE578 /* ChatsScreenView.swift in Sources */,
-				4B2192982CE274400012B1A0 /* ChatPartnerImageView.swift in Sources */,
+				4B2192982CE274400012B1A0 /* ChatPartnerImage.swift in Sources */,
 				4B2999E42CC7EED900061B91 /* NumField.swift in Sources */,
+				4B00A0EA2CE28BBC00CDFC33 /* FoundChatPartnerButton.swift in Sources */,
 				4B6DAD9B2CDBD1C0000F81EC /* AuthErrors.swift in Sources */,
 				4BB75EE72CC01E560075BB14 /* TimeStampText.swift in Sources */,
 				4B26CC202CDE638F0067A7A9 /* FoundChatPartnerView.swift in Sources */,

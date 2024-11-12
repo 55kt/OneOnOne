@@ -22,120 +22,125 @@ struct SearchPartnerView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(spacing: 20) {
-            // Поле для ввода тега
-            HStack {
-                TextField("Введите тэг", text: $searchQuery)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+        NavigationStack {
+            VStack(spacing: 20) {
+                // Поле для ввода тега
+                HStack {
+                    TextField("Введите тэг", text: $searchQuery)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
+                    
+                    Button(action: addTag) {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 24))
+                            .padding()
+                    }
+                    .disabled(searchQuery.isEmpty)
+                }
+                .padding(.horizontal)
+                
+                // Отображение добавленных тэгов
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(tags, id: \.self) { tag in
+                            TagView(tag: tag, onRemove: removeTag)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                
+                // Выбор пола
+                VStack(alignment: .leading) {
+                    Text("Пол собеседника")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                        .padding(.leading)
+                    
+                    Picker("Пол собеседника", selection: $selectedGender) {
+                        ForEach(Gender.allCases, id: \.self) { gender in
+                            Text(gender.rawValue.capitalized)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal)
                     .background(Color.white)
                     .cornerRadius(10)
                     .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
+                }
                 
-                Button(action: addTag) {
-                    Image(systemName: "plus.circle.fill")
-                        .foregroundColor(.blue)
-                        .font(.system(size: 24))
+                // Возрастной диапазон
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Возрастной диапазон")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                        .padding(.leading)
+                    
+                    Text("Выбранный возраст: \(Int(minAge)) - \(Int(maxAge))")
+                        .font(.subheadline)
+                        .bold()
+                        .padding(.horizontal)
+                    
+                    Slider(value: $minAge, in: 18...60, step: 1.0)
+                        .accentColor(.blue)
+                        .padding(.horizontal)
+                    
+                    Slider(value: $maxAge, in: 18...60, step: 1.0)
+                        .accentColor(.blue)
+                        .padding(.horizontal)
+                }
+                
+                NavigationLink {
+                    FoundChatPartnerView(user: .placeholder)
+                } label: {
+                    Button(action: performSearch) {
+                        Text("Найти собеседника")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                            .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
+                    }
+                    .padding(.horizontal)
+                    .disabled(tags.isEmpty)
+                }
+                
+                Divider().padding(.horizontal)
+                
+                // Результаты поиска
+                if isSearching {
+                    ProgressView("Идет поиск...")
                         .padding()
-                }
-                .disabled(searchQuery.isEmpty)
-            }
-            .padding(.horizontal)
-            
-            // Отображение добавленных тэгов
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(tags, id: \.self) { tag in
-                        TagView(tag: tag, onRemove: removeTag)
-                    }
-                }
-                .padding(.horizontal)
-            }
-            
-            // Выбор пола
-            VStack(alignment: .leading) {
-                Text("Пол собеседника")
-                    .font(.headline)
-                    .foregroundColor(.gray)
-                    .padding(.leading)
-                
-                Picker("Пол собеседника", selection: $selectedGender) {
-                    ForEach(Gender.allCases, id: \.self) { gender in
-                        Text(gender.rawValue.capitalized)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding(.horizontal)
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: .gray.opacity(0.2), radius: 5, x: 0, y: 5)
-            }
-            
-            // Возрастной диапазон
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Возрастной диапазон")
-                    .font(.headline)
-                    .foregroundColor(.gray)
-                    .padding(.leading)
-                
-                Text("Выбранный возраст: \(Int(minAge)) - \(Int(maxAge))")
-                    .font(.subheadline)
-                    .bold()
-                    .padding(.horizontal)
-                
-                Slider(value: $minAge, in: 18...60, step: 1.0)
-                    .accentColor(.blue)
-                    .padding(.horizontal)
-                
-                Slider(value: $maxAge, in: 18...60, step: 1.0)
-                    .accentColor(.blue)
-                    .padding(.horizontal)
-            }
-            
-            // Кнопка поиска
-            Button(action: performSearch) {
-                Text("Найти собеседника")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .shadow(color: .blue.opacity(0.3), radius: 10, x: 0, y: 5)
-            }
-            .padding(.horizontal)
-            .disabled(tags.isEmpty)
-            
-            Divider().padding(.horizontal)
-            
-            // Результаты поиска
-            if isSearching {
-                ProgressView("Идет поиск...")
-                    .padding()
-            } else {
-                List(searchResults, id: \.uid) { user in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(user.username ?? "Пользователь без имени")
-                                .font(.headline)
-                                .foregroundColor(.primary)
-                            Text(user.phoneNumber)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                } else {
+                    List(searchResults, id: \.uid) { user in
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(user.username ?? "Пользователь без имени")
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                                Text(user.phoneNumber)
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
                         }
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 5)
                     }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 5)
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
             }
+            .navigationTitle("Поиск собеседника")
+            .padding(.top)
+            .background(Color(UIColor.systemGroupedBackground))
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .navigationTitle("Поиск собеседника")
-        .padding(.top)
-        .background(Color(UIColor.systemGroupedBackground))
-        .edgesIgnoringSafeArea(.bottom)
     }
     
     // MARK: - Methods

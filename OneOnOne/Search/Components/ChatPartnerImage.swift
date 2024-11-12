@@ -1,5 +1,5 @@
 //
-//  ChatPartnerImageView.swift
+//  ChatPartnerImage.swift
 //  OneOnOne
 //
 //  Created by Vlad on 11/11/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatPartnerImageView: View {
+struct ChatPartnerImage: View {
     // MARK: - Properties
     @Environment(\.dismiss) private var dismiss
     
@@ -32,5 +32,5 @@ struct ChatPartnerImageView: View {
 
 // MARK: - Preview
 #Preview {
-    ChatPartnerImageView()
+    ChatPartnerImage()
 }
